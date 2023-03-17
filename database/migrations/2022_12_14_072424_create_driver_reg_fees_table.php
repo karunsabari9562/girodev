@@ -18,8 +18,8 @@ return new class extends Migration
 
             $table->string('fee', 100)->nullable();
             $table->Integer('status')->nullable()->default(0);
-            $table->time('timefrom', 100)->nullable();
-            $table->time('timeto', 100)->nullable();
+            $table->time('timefrom')->nullable();
+            $table->time('timeto')->nullable();
             $table->timestamps();
         });
     }
