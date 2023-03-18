@@ -123,7 +123,7 @@
         <div class="row">
           <div class="col-12">
               <div class="mb-3 text-right">
-                <a href="/forgot-password">I forgot my password</a>
+                <a href="/division-forgot-password">I forgot my password</a>
               </div>
               
           </div>
