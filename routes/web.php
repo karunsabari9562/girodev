@@ -17,6 +17,7 @@ use App\Http\Controllers\rides\AdminCollectionController;
 use App\Http\Controllers\rides\DriverSalaryController;
 use App\Http\Controllers\rides\FranchiseSalaryController;
 use App\Http\Controllers\rides\AdminSalaryController;
+use App\Http\Controllers\RefundController;
 
 
 
@@ -278,11 +279,20 @@ Route::post('/girokab-admin/drivers-payment', [DriverSalaryController::class, 'd
 Route::post('/franchise-salary-pay', [AdminSalaryController::class, 'franchise_salary_pay']);
 Route::post('/girokab-admin/division-payments', [AdminSalaryController::class, 'division_payments']);
 
+/////////////////////////
+
+Route::get('/girokab-admin/refund-requests', [RefundController::class, 'refund_requests']);
+Route::get('/girokab-admin/refund-ride-details/{bid}', [RefundController::class, 'refund_ride_details']);
+
+Route::get('/girokab-admin/approve-refund/{bid}', [RefundController::class, 'approve_refund']);
 
 
+Route::post('/girokab-admin/reject-refund', [RefundController::class, 'reject_refund']);
 
+Route::get('/girokab-admin/rejected-refunds', [RefundController::class, 'rejected_refunds']);
+Route::get('/girokab-admin/completed-refunds', [RefundController::class, 'completed_refunds']);
 
-
+Route::post('/girokab-admin/pay-refund', [RefundController::class, 'pay_refund']);
 
 
 

@@ -32,6 +32,18 @@ return new class extends Migration
            $table->string('time',50)->nullable();
             $table->string('franchise',10)->nullable();
            $table->string('fare',100)->nullable();
+
+           $table->string('total_fare',10)->nullable();
+           $table->Integer('night_ride')->nullable();
+           $table->Integer('payment_type')->nullable();
+           $table->Integer('payment_status')->nullable();
+           $table->timestamp('payment_date')->nullable();
+           $table->string('paid_amount',10)->nullable();
+           $table->string('reference_id',100)->nullable();
+           $table->Integer('refund_status')->nullable()->default(0);
+          $table->timestamp('started_at')->nullable();
+
+
            $table->Integer('status')->nullable();
            $table->string('reason',200)->nullable();
           

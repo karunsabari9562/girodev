@@ -178,6 +178,8 @@ Route::get('/active-vehicle-types/{catid}', [CustomerRideBookings::class, 'activ
 Route::post('/drivers-list', [CustomerRideBookings::class, 'drivers_list']);
 Route::post('/ride-booking', [CustomerRideBookings::class, 'ride_booking']);
 
+Route::post('/payment-type', [CustomerRideBookings::class, 'payment_type']);
+
 Route::post('/cancel-booking', [CustomerRideBookings::class, 'cancel_booking']);
 Route::post('/timeout-booking', [CustomerRideBookings::class, 'timeout_booking']);
 

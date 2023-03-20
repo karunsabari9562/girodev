@@ -221,6 +221,17 @@ return response()->json([
                                              'distance'=>$bookdt->distance,
                                              'time'=>$bookdt->time,
                                 		     'fare'=>$bookdt->fare,
+
+
+                                'night_ride'=>$bookdt->night_ride,
+                                'payment_type'=>$bookdt->payment_type,
+                                'payment_status'=>$bookdt->payment_status,
+                                'payment_date'=>$bookdt->payment_date,
+                                'paid_amount'=>$bookdt->total_fare,
+                                'reference_id'=>$bookdt->reference_id,
+                                'total_fare'=>$bookdt->total_fare,
+                                'started_at'=>$bookdt->started_at,
+                                'refund_status'=>0,
                                 
                                 		     'status'=>2,
                                 
@@ -489,8 +500,8 @@ return response()->json([
 		     'fare'=>$bookdt->fare,
 
 		     'fare'=>$bookdt->fare,
-             'tax'=>$bookdt->tax,
-             'total_fare'=>$bookdt->total_fare,
+          'tax'=>$bookdt->tax,
+          'total_fare'=>$bookdt->total_fare,
               'service_charge'=>$bookdt->service_charge,
              'night_ride'=>$bookdt->night_ride,
 

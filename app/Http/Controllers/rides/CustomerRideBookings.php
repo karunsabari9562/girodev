@@ -328,6 +328,7 @@ class CustomerRideBookings extends Controller
                               'd_id'=>$req->driver_id,
                               'status'=>0,
                               'payment_status'=>'',
+                              'payment_type'=>'',
                               'start_points'=>'',
                               'points'=>$req->points,
                               'd_lat'=>'',
@@ -486,6 +487,16 @@ class CustomerRideBookings extends Controller
                                 'distance'=>$bookdt->distance,
                                 'time'=>$bookdt->time,
                                 'fare'=>$bookdt->fare,
+
+                                'night_ride'=>$bookdt->night_ride,
+                                'payment_type'=>$bookdt->payment_type,
+                                'payment_status'=>$bookdt->payment_status,
+                                'payment_date'=>$bookdt->payment_date,
+                                'paid_amount'=>$bookdt->total_fare,
+                                'reference_id'=>$bookdt->reference_id,
+                                'total_fare'=>$bookdt->total_fare,
+                                'started_at'=>$bookdt->started_at,
+                                'refund_status'=>0,
                         
                                 'status'=>3,
                         
@@ -647,6 +658,16 @@ class CustomerRideBookings extends Controller
                             'distance'=>$bookdt->distance,
                             'time'=>$bookdt->time,
                             'fare'=>$bookdt->fare,
+
+                            'night_ride'=>$bookdt->night_ride,
+                            'payment_type'=>$bookdt->payment_type,
+                            'payment_status'=>$bookdt->payment_status,
+                            'payment_date'=>$bookdt->payment_date,
+                            'paid_amount'=>$bookdt->total_fare,
+                            'reference_id'=>$bookdt->reference_id,
+                            'total_fare'=>$bookdt->total_fare,
+                            'started_at'=>$bookdt->started_at,
+                            'refund_status'=>0,
                     
                             'status'=>4,
                             
@@ -692,6 +713,76 @@ class CustomerRideBookings extends Controller
                 }
 
            }                
+        
+    }
+
+
+    public function payment_type(Request $req)
+        
+    {
+        $rules = [
+              // 'img' => 'required',
+            'booking_id' => 'required',
+            'payment_type' => 'required',
+         
+ 
+          ];
+    
+      $validator = Validator::make($req->all(), $rules);  
+
+        if ($validator->fails())
+        {
+          return response()->json(['error_message'=>$validator->errors()],400);
+        } 
+        else
+        {
+      
+
+              $user=Auth::guard('customerapi')->user()->id;
+        
+              $book_id=$req->booking_id;
+
+              $bookdt=rides_booking::where('id',$book_id)->where('customer_id',$user)->first();
+
+       if($bookdt)
+       {
+            
+                  rides_booking::where('id',$book_id)->update([
+                  
+                    'payment_type'=>$req->payment_type,
+                                   
+                    ]);
+
+                   $tb="new_bookings";
+                   $postData=[
+
+                  'payment_type'=>$req->payment_type,
+
+                    ];
+                $key=$book_id;
+  
+         $this->database->getReference($tb.'/'.$key)->update($postData); 
+
+                  return response()->json([
+
+                  'message'=>'Payment type updated successfully.',           
+                
+                  ],200);
+                }
+
+              else
+                {
+                  return response()->json([
+
+                  'message'=>'Invalid request',           
+                
+                  ],408);
+                }
+
+             
+               
+            }    
+                       
         
     }
   
@@ -945,7 +1036,8 @@ class CustomerRideBookings extends Controller
 		$bk=rides_booking::select('id','driver_id','status','from_latitude','from_longitude','from_location','to_location','total_fare','distance','to_latitude','to_longitude','customer_id')
 		->where('customer_id',$user)
 		->where(function($q) {
-		  $q->where('status', 1)
+		  $q->where('status', 0)
+      ->orWhere('status', 1)
 		  ->orWhere('status', 5);
 		})
 		->limit(1)
