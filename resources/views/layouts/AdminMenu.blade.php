@@ -119,7 +119,7 @@
             <li class="nav-item">
               <a href="/girokab-admin/driver-profile-updates" class="nav-link" style="color: white;">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Profile Updates</p>  
+                <p>Documents Updates</p>  
 
               </a>
 

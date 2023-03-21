@@ -84,7 +84,7 @@
 
                      <div class="card-footer">
                   <!-- <button type="submit" class="btn btn-info">Analise</button> -->
-                    <button type="submit" class="btn yellowbtn float-right">View Collection</button>
+                    <button type="submit" class="btn yellowbtn float-right">View</button>
                  
                 </div>
                 </form>

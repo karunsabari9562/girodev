@@ -105,7 +105,7 @@
           <input type="password" class="form-control" placeholder="Password" name="password" id="password">
           <div class="input-group-append">
             <div class="input-group-text">
-              <span class="fas fa-lock"></span>
+        <span class="fa fa-eye" style="cursor: pointer;" onclick="Visibility()" id="eye"></span>
             </div>
           </div>
         </div>
@@ -191,6 +191,21 @@ $(document).keypress(function(event){
 	}
 	
 });
+
+function Visibility()
+{
+  if(document.getElementById("password").type == "text")
+  {
+    document.getElementById("password").type = "password";
+$('#eye').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+  }
+  else if(document.getElementById("password").type == "password")
+  {
+    document.getElementById("password").type = "text";
+$('#eye').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+  }
+
+}
 
 function Login()
 {
