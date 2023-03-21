@@ -72,7 +72,7 @@
                 </td>
 
                 <td>
-                    <a style="cursor: pointer;background-color: #fab60b;border:none;" href="/girokab-admin/ride-details/{{encrypt($b->id)}}" class="btn btn-danger btn-sm" target="_blank"><b> Approve </b></a>
+                    <a style="cursor: pointer;background-color: #fab60b;border:none;" onclick="Restore('{{$b->id}}')" class="btn btn-danger btn-sm" target="_blank"><b> Restore </b></a>
 
                 </td>
 
@@ -129,11 +129,11 @@
   <script type="text/javascript">
 
 
-         function Reject(val)
+         function Restore(val)
     {
 
        swal({
-  title: "Do you want to reject this refund request ?",
+  title: "Do you want to restore this refund request ?",
   //text: "Ensure that the customer is fit for service.",
   icon: "warning",
   buttons: ["No", "Yes"],
@@ -150,7 +150,7 @@
       $.ajax({
     
         type:"POST",
-        url:"/girokab-admin/reject-refund",
+        url:"/girokab-admin/restore-refund",
          data: data,
         dataType:"json",
         contentType: false,
@@ -163,7 +163,7 @@ processData: false,
           {
           
                swal({
-                       title: "Refund request rejected successfully",
+                       title: "Refund request restored successfully",
                        closeOnClickOutside: false,
                        icon: "success",
                       buttons: "Ok",

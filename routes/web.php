@@ -18,6 +18,7 @@ use App\Http\Controllers\rides\DriverSalaryController;
 use App\Http\Controllers\rides\FranchiseSalaryController;
 use App\Http\Controllers\rides\AdminSalaryController;
 use App\Http\Controllers\RefundController;
+use App\Http\Controllers\DocumentController;
 
 
 
@@ -128,7 +129,7 @@ Route::middleware(['AdminLoginCheck','PreventBack'])->group(function () {
   Route::get('/approve-driver', [DriverController::class, 'approve_driver']);  
 
   Route::get('/girokab-admin/driver-profile-updates', [DriverController::class, 'driver_profile_updates']);
-  Route::get('/admin/driver-document-verify/{pid}', [DriverController::class, 'driver_document_verify']); 
+  Route::get('/girokab-admin/driver-document-verify/{pid}', [DriverController::class, 'driver_document_verify']); 
 
   Route::get('/girokab-admin/driver-account-renewal', [DriverController::class, 'driver_account_renewal']);
   Route::post('/girokab-admin/reject-renewal-req', [DriverController::class, 'reject_renewal_req']);
@@ -136,13 +137,13 @@ Route::middleware(['AdminLoginCheck','PreventBack'])->group(function () {
   Route::post('/girokab-admin/restore-renewal', [DriverController::class, 'restore_renewal']);
   Route::post('/girokab-admin/approve-renewal', [DriverController::class, 'approve_renewal']);
 
-  Route::post('/admin/reject-driverdoc', [DriverController::class, 'reject_driverdoc']); 
-  Route::post('/admin/rc-reapproval', [DriverController::class, 'rc_reapproval']);
-  Route::post('/admin/license-reapproval', [DriverController::class, 'license_reapproval']); 
-  Route::post('/admin/license-reapprovalback', [DriverController::class, 'license_reapprovalback']); 
-  Route::post('/admin/insurance-reapproval', [DriverController::class, 'insurance_reapproval']); 
-  Route::post('/admin/pollution-reapproval', [DriverController::class, 'pollution_reapproval']); 
-  Route::post('/admin/permit-reapproval', [DriverController::class, 'permit_reapproval']); 
+  Route::post('/girokab-admin/reject-driverdoc', [DriverController::class, 'reject_driverdoc']); 
+  Route::post('/girokab-admin/rc-reapproval', [DriverController::class, 'rc_reapproval']);
+  Route::post('/girokab-admin/license-reapproval', [DriverController::class, 'license_reapproval']); 
+  Route::post('/girokab-admin/license-reapprovalback', [DriverController::class, 'license_reapprovalback']); 
+  Route::post('/girokab-admin/insurance-reapproval', [DriverController::class, 'insurance_reapproval']); 
+  Route::post('/girokab-admin/pollution-reapproval', [DriverController::class, 'pollution_reapproval']); 
+  Route::post('/girokab-admin/permit-reapproval', [DriverController::class, 'permit_reapproval']); 
 
   //////////////////
   Route::get('/girokab-admin/franchise-drivers/{fid}', [HandleFranchise::class, 'franchise_drivers']);
@@ -290,9 +291,11 @@ Route::get('/girokab-admin/approve-refund/{bid}', [RefundController::class, 'app
 Route::post('/girokab-admin/reject-refund', [RefundController::class, 'reject_refund']);
 
 Route::get('/girokab-admin/rejected-refunds', [RefundController::class, 'rejected_refunds']);
+Route::post('/girokab-admin/restore-refund', [RefundController::class, 'restore_refund']);
 Route::get('/girokab-admin/completed-refunds', [RefundController::class, 'completed_refunds']);
 
 Route::post('/girokab-admin/pay-refund', [RefundController::class, 'pay_refund']);
+Route::post('/girokab-admin/all-refund-history', [RefundController::class, 'all_refund_history']);
 
 
 
@@ -455,6 +458,11 @@ Route::post('/drivers-payment', [FranchiseSalaryController::class, 'drivers_paym
 Route::get('/driver-paid-rides/{pid}', [FranchiseSalaryController::class, 'driver_rides_list']);
 
 Route::get('/payments', [FranchiseSalaryController::class, 'payments']);
+
+
+
+Route::get('/upload-document', [DocumentController::class, 'upload_document']);
+Route::post('/doc-reupload', [DocumentController::class, 'doc_reupload']);
 
 
     });

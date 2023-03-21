@@ -16,7 +16,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Drivers Profile Updates</h1>
+            <h1>Drivers Documents Uploads</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -38,7 +38,10 @@
             <div class="card">
               <!--<div class="card-header">-->
               <!--   <h2 class="card-title" style="font-size: 25px;font-weight: bold;">Pending</h2>-->
-              
+              <div class="card-header">
+                 <h2 class="card-title" style="font-size: 25px;font-weight: bold;"></h2>
+               <button type="button" class="btn yellowbtn" style="float: right;" value="Submit" onclick="window.location.href='/upload-document'" id="renewbt1"><i class="nav-icon fa fa-plus"></i>   Upload Document</button>
+              </div>
               <!--</div>-->
               <!-- /.card-header -->
               <div class="card-body">
@@ -51,7 +54,7 @@
                     <th>Mobile</th>
                     <!-- <th>Franchise</th> -->
                     <th>Document Type</th>
-                    <th>Document review</th>
+                    <th>Div. Approval</th>
                     <th>Admin Approval</th>
                     
                     <th>Actions</th>
@@ -103,11 +106,11 @@
 
                     @if($v->franchise_approval==1)
                       <td>
-                  <a style="cursor: pointer;background-color: grey;border:none;" class="btn btn-danger btn-sm"><b> verified     </b></a>
+                  <a style="cursor: pointer;background-color: grey;border:none;" class="btn btn-danger btn-sm"><b> Edit     </b></a>
                 </td>
                      @else
                   <td>
-                  <a style="cursor: pointer;background-color: #fab60b;border:none;" href="/driver-document-verify/{{encrypt($v->id)}}" class="btn btn-danger btn-sm"><b> verify     </b></a>
+                  <a style="cursor: pointer;background-color: #fab60b;border:none;" href="/driver-document-verify/{{encrypt($v->id)}}" class="btn btn-danger btn-sm"><b> Edit     </b></a>
                 </td>
                     @endif
                          

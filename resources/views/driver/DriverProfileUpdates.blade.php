@@ -109,7 +109,7 @@
                 </td>
                      @else
                   <td>
-                  <a style="cursor: pointer;background-color: #fab60b;border:none;" href="/admin/driver-document-verify/{{encrypt($v->id)}}" class="btn btn-danger btn-sm"><b> verify     </b></a>
+                  <a style="cursor: pointer;background-color: #fab60b;border:none;" href="/girokab-admin/driver-document-verify/{{encrypt($v->id)}}" class="btn btn-danger btn-sm"><b> verify     </b></a>
                 </td>
                     @endif
                          

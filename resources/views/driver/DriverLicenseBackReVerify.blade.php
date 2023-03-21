@@ -263,7 +263,7 @@
       $.ajax({
     
         type:"POST",
-        url:"/admin/license-reapprovalback",
+        url:"/girokab-admin/license-reapprovalback",
          data: data,
         dataType:"json",
         contentType: false,
@@ -349,7 +349,7 @@ $('#ab2').show();
   $.ajax({
 
     type:"POST",
-    url:"/admin/reject-driverdoc",
+    url:"/girokab-admin/reject-driverdoc",
     data:data,
     dataType:"json",
     contentType: false,

@@ -123,7 +123,14 @@
               </div>
              </center>
               
-
+             <div class="card-header">
+                <!-- <h5 class="card-title">File :</h5> -->
+                <div class="card-tools">
+                         <input type="file" name="pdf_file" id="pdf_file" style=" background: #ececec;
+                color: black;padding: 1em 0.2rem;border-radius: 5px;" onchange="Abc()">
+                
+                </div>
+              </div>
                <div class="card-header">
                 <h5 class="card-title">Expiry :</h5>
                 <div class="card-tools">
@@ -133,7 +140,7 @@
               </div>
 
               <br>
-               <h5 class="card-title">Reject if ,</h5>
+               <!-- <h5 class="card-title">Reject if ,</h5>
            <div class="card-body">
                 <div class="custom-control custom-checkbox">
                   <input class="custom-control-input" type="checkbox" id="b1" value="Invalid Vehicle Insurance">
@@ -142,7 +149,7 @@
               
               
                 
-              </div>
+              </div> -->
 
 
 
@@ -281,15 +288,16 @@
 
       data = new FormData();
 
-  data.append('did','{{$docs->driver_id}}');
-  data.append('docid','{{$docs->id}}');
-  data.append('dlexpiry',dlexpiry);
+  data.append('dr','{{$docs->driver_id}}');
+  data.append('dtype','{{$docs->doc_type}}');
+  data.append('expiry',dlexpiry);
+   data.append('imgg', $('#pdf_file')[0].files[0]);
   data.append('_token', "{{ csrf_token() }}");
     
       $.ajax({
     
         type:"POST",
-        url:"/send-for-docapproval",
+        url:"/doc-reupload",
          data: data,
         dataType:"json",
         contentType: false,
@@ -435,6 +443,34 @@ processData: false,
     } 
 
 
+
+ function Abc()
+  {
+                  var name = document.getElementById("pdf_file").files[0].name;
+  //alert(name)
+  var form_data = new FormData();
+  var ext = name.split('.').pop().toLowerCase();
+  //if(jQuery.inArray(ext, ['gif','png','jpg','jpeg','pdf']) == -1)
+  if(jQuery.inArray(ext, ['gif','png','jpg','jpeg','pdf']) == -1)
+
+  {
+   alert("Invalid File.");
+   $('input#pdf_file').val("");
+   return false;
+  }
+  var oFReader = new FileReader();
+  oFReader.readAsDataURL(document.getElementById("pdf_file").files[0]);
+  var f = document.getElementById("pdf_file").files[0];
+  var fsize = f.size||f.fileSize;
+  if(fsize > 6000000)
+  {
+   alert("File Size is very big");
+   $('input#pdf_file').val("");
+   return false;
+  }
+
+  
+}
 
 
 
