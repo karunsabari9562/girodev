@@ -39,7 +39,7 @@ class timeoutrides extends Command
     {
          $dt=date('Y-m-d H:i:s');
 
-         $end_time = date("Y-m-d H:i:s", strtotime('-5 hour -30 minutes',strtotime($dt)));
+         $end_time = date("Y-m-d H:i:s", strtotime('+5 hour +30 minutes',strtotime($dt)));
 
 
 
