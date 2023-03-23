@@ -1082,6 +1082,17 @@ class CustomerRideBookings extends Controller
                                 
                         
                             ]);
+
+                            $tb="new_bookings";
+                                 $postData=[
+                        
+                                  'status'=>3,
+                        
+                                ];
+                                $key=$bookdt->id;
+                            
+                        
+                            $this->database->getReference($tb.'/'.$key)->update($postData); 
                                     
                             rides_booking::where('id',$bookdt->id)->update([
                                            
