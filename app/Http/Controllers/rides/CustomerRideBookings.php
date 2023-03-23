@@ -1033,7 +1033,7 @@ class CustomerRideBookings extends Controller
 
 		 $dt=date('Y-m-d');
 
-  $bookdt=ride_booking::where('customer_id',$user)->where('booked_date',$dt)->where('status',0)->first();
+  $bookdt=rides_booking::where('customer_id',$user)->where('booked_date',$dt)->where('status',0)->first();
 
   if($bookdt)
   {
