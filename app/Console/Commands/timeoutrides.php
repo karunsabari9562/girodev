@@ -37,9 +37,15 @@ class timeoutrides extends Command
      
     public function handle()
     {
-        $dt=date('Y-m-d H:i:s');
+         $dt=date('Y-m-d H:i:s');
 
-        $trides=DB::table('rides_bookings')->where('timeout','<',$dt)->where('status',0)->get();
+         $end_time = date("Y-m-d H:i:s", strtotime('-5 hour -30 minutes',strtotime($dt)));
+
+
+
+        $trides=DB::table('rides_bookings')->where('timeout','<',$end_time)->where('status',0)->get();
+
+
         foreach ($trides as $tr)
          {
             unfinished_bookings::updateOrCreate([
