@@ -1035,7 +1035,7 @@ class CustomerRideBookings extends Controller
 
   $bookdt=ride_booking::where('customer_id',$user)->where('booked_date',$dt)->where('status',0)->first();
 
-  if($cnt)
+  if($bookdt)
   {
       unfinished_bookings::updateOrCreate([
                         
