@@ -1031,72 +1031,78 @@ class CustomerRideBookings extends Controller
 		$user=Auth::guard('customerapi')->user()->id;
 					
 
-		// $dt=date('Y-m-d');
+		 $dt=date('Y-m-d');
 
-  // $bookdt=ride_booking::where('customer_id',$user)->where('booked_date',$dt)->where('status',0)->first();
+  $bookdt=ride_booking::where('customer_id',$user)->where('booked_date',$dt)->where('status',0)->first();
 
-  // if($bookdt)
-  // {
-  //     unfinished_bookings::updateOrCreate([
+  if($bookdt)
+  {
+      unfinished_bookings::updateOrCreate([
                         
-  //                             'bid'   => $bookdt->id,
+                              'bid'   => $bookdt->id,
                         
-  //                           ],
-  //                           [ 
-  //                               'bid'=>$bookdt->id,
-  //                               'booking_id'=>"GKB". $bookdt->id,
+                            ],
+                            [ 
+                                'bid'=>$bookdt->id,
+                                'booking_id'=>"GKB". $bookdt->id,
                         
-  //                               'customer_id'=>$bookdt->customer_id,
-  //                               'booked_at'=>$bookdt->booked_at,
-  //                               'booked_date'=>$bookdt->booked_date,
+                                'customer_id'=>$bookdt->customer_id,
+                                'booked_at'=>$bookdt->booked_at,
+                                'booked_date'=>$bookdt->booked_date,
                         
-  //                               'from_latitude'=>$bookdt->from_latitude,
-  //                               'from_longitude'=>$bookdt->from_longitude,
-  //                               'from_location'=>$bookdt->from_location,
+                                'from_latitude'=>$bookdt->from_latitude,
+                                'from_longitude'=>$bookdt->from_longitude,
+                                'from_location'=>$bookdt->from_location,
                         
-  //                               'to_latitude'=>$bookdt->to_latitude,
-  //                               'to_longitude'=>$bookdt->to_longitude,
-  //                               'to_location'=>$bookdt->to_location,
+                                'to_latitude'=>$bookdt->to_latitude,
+                                'to_longitude'=>$bookdt->to_longitude,
+                                'to_location'=>$bookdt->to_location,
                         
-  //                               'vehicle_type'=>$bookdt->vehicle_type,
-  //                               'driver_id'=>$bookdt->driver_id,
-  //                               'franchise'=>$bookdt->franchise,
+                                'vehicle_type'=>$bookdt->vehicle_type,
+                                'driver_id'=>$bookdt->driver_id,
+                                'franchise'=>$bookdt->franchise,
                         
-  //                               'distance'=>$bookdt->distance,
-  //                               'time'=>$bookdt->time,
-  //                               'fare'=>$bookdt->fare,
+                                'distance'=>$bookdt->distance,
+                                'time'=>$bookdt->time,
+                                'fare'=>$bookdt->fare,
 
-  //                               'night_ride'=>$bookdt->night_ride,
-  //                               'payment_type'=>$bookdt->payment_type,
-  //                               'payment_status'=>$bookdt->payment_status,
-  //                               'payment_date'=>$bookdt->payment_date,
-  //                               'paid_amount'=>$bookdt->total_fare,
-  //                               'reference_id'=>$bookdt->reference_id,
-  //                               'total_fare'=>$bookdt->total_fare,
-  //                               'started_at'=>$bookdt->started_at,
-  //                               'refund_status'=>0,
+                                'night_ride'=>$bookdt->night_ride,
+                                'payment_type'=>$bookdt->payment_type,
+                                'payment_status'=>$bookdt->payment_status,
+                                'payment_date'=>$bookdt->payment_date,
+                                'paid_amount'=>$bookdt->total_fare,
+                                'reference_id'=>$bookdt->reference_id,
+                                'total_fare'=>$bookdt->total_fare,
+                                'started_at'=>$bookdt->started_at,
+                                'refund_status'=>0,
                         
-  //                               'status'=>3,
+                                'status'=>3,
                         
-  //                               'reason'=>"Closed Unexpectedly",
+                                'reason'=>"Closed Unexpectedly",
                                 
                         
-  //                           ]);
+                            ]);
                                     
-  //                           rides_booking::where('id',$bookdt->id)->update([
+                            rides_booking::where('id',$bookdt->id)->update([
                                            
-  //                           'status'=>3,
-  //                           'reason'=>"Closed Unexpectedly",
+                            'status'=>3,
+                            'reason'=>"Closed Unexpectedly",
                                             
-  //                           ]);
-  //                           active_driver::where('dr_id',$bookdt->driver_id)->update([
+                            ]);
+                            active_driver::where('dr_id',$bookdt->driver_id)->update([
                                            
-  //                             'ride_status'=>0,
+                              'ride_status'=>0,
                               
-  //                             ]);
-  // }
-  // else
-  // {
+                              ]);
+
+                            return response()->json([
+                'message'=>"No running rides found !",
+           
+
+                ],408); 
+  }
+  else
+  {
 
     $bk=rides_booking::select('id','driver_id','status','from_latitude','from_longitude','from_location','to_location','total_fare','distance','to_latitude','to_longitude','customer_id')
     ->where('customer_id',$user)
@@ -1126,7 +1132,7 @@ class CustomerRideBookings extends Controller
                 ],408); 
 
     }
-  // }
+   }
 
 
 
