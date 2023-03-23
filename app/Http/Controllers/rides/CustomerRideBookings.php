@@ -831,6 +831,7 @@ class CustomerRideBookings extends Controller
                    $postData=[
 
                   'payment_status'=>1,
+                  'payment_type'=>1,
 
                     ];
                 $key=$book_id;

@@ -560,6 +560,8 @@ return response()->json([
 		                  $tb="new_bookings";
          $postData=[
 
+          'payment_status'=>1,
+          'payment_type'=>2,
           'status'=>6,
 
         ];
