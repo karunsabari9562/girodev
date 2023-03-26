@@ -51,7 +51,7 @@ p {
        
         @php
         $dr_id=encrypt($driver->id);
-        $url='https://girokab.com/driver-details/'. $dr_id;
+        $url='https://girokab.com/giro/driver-details/'. $dr_id;
         $qw=base64_encode(QrCode::format('svg')->size(200)->margin(3)->errorCorrection('H')->generate($url));
         @endphp
         <img src="data:image/png;base64, {!! $qw !!}">

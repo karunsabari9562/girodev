@@ -68,8 +68,8 @@ class FrontEndController extends Controller
       public function driver_details($did)
      
     {
-       //$drid=decrypt($did); 
-         $driver= driver_registration::select('name','driver_id','id','photo','mobile','status','approved_date','franchise','vehicle_type')->where('id',$did)->first();
+       $drid=decrypt($did); 
+         $driver= driver_registration::select('name','driver_id','id','photo','mobile','status','approved_date','franchise','vehicle_type')->where('id',$drid)->first();
       return view('frontend.DriverDetails',['driver'=>$driver]);
             
     } 

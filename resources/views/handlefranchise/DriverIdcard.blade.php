@@ -118,7 +118,7 @@ p {
        
         @php
         $dr_id=encrypt($driver->id);
-        $url='https://girokab.com/driver-details/'. $dr_id;
+        $url='https://girokab.com/giro/driver-details/'. $dr_id;
         $qw=base64_encode(QrCode::format('svg')->size(50)->margin(3)->errorCorrection('H')->generate($url));
         @endphp
     
