@@ -66,8 +66,8 @@
                   
                       </ul>
                     </div>
-                    <div class="col-5 text-center">
-                      <img src="{{asset($v->icon)}}" alt="user-avatar" class="img-circle img-fluid">
+                    <div class="col-5">
+                      <img src="{{asset($v->icon)}}" alt="user-avatar" style="width: 85px;height: 45px;">
                     </div>
                   </div>
                 </div>
