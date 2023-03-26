@@ -118,13 +118,13 @@ p {
        
         @php
         $dr_id=encrypt($driver->id);
-        $url='http://girokab.ambiers.com/driver-details/'. $dr_id;
+        $url='https://girokab.com/driver-details/'. $dr_id;
         $qw=base64_encode(QrCode::format('svg')->size(50)->margin(3)->errorCorrection('H')->generate($url));
         @endphp
     
         <div class="div2">
              
-            <img style="width: 120px;" src="data:image/png;base64, {!! $qw !!}" alt="" style="border-radius: 0px;width: 110px;"><br><br>
+            <img src="data:image/png;base64, {!! $qw !!}" alt="" style="border-radius: 0px;width: 110px;"><br><br>
                        
             <table>
                 <tr>

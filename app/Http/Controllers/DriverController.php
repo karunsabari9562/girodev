@@ -102,7 +102,14 @@ else
 }
 $validity = date("Y-m-d", strtotime(date('Y-m-d') . " + 365 day"));
 
-         active_driver::create([
+
+           active_driver::updateOrCreate([
+                    
+                          'dr_id'   => $drid,
+                    
+                        ],
+                        [ 
+
           'dr_id'=>$drid,
           'dr_code'=>$driver_num,
           'driver_id'=>"GK" . $driver_num,
@@ -113,8 +120,8 @@ $validity = date("Y-m-d", strtotime(date('Y-m-d') . " + 365 day"));
           'availability_status'=>0,
           'offlined_at'=>date('Y-m-d H:i:s'),
           'status'=>1 
-            ]);
-
+            
+             ]);
 
 
         driver_registration::where('id',$drid)->update([
