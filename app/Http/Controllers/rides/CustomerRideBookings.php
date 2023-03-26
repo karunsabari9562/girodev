@@ -251,6 +251,7 @@ class CustomerRideBookings extends Controller
           $user=Auth::guard('customerapi')->user()->id;
           $dt=date('Y-m-d');
           $cusride=rides_booking::where('booked_date',$dt)
+           ->where('customer_id',$user)
            ->where(function($q) {
           		$q->where('status', 0)
           		->orWhere('status', 1)
