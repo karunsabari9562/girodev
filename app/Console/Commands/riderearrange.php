@@ -93,7 +93,7 @@ class riderearrange extends Command
             'paid_amount'=>$tr->total_fare,
             'reference_id'=>$tr->reference_id,
 
-            'status'=>10,
+            'status'=>6,
 
             'reason'=>'',
             'star_rating'=>$tr->star_rating,
