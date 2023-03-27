@@ -253,21 +253,21 @@ class CustomerRideBookings extends Controller
           $cusride=rides_booking::where('booked_date',$dt)
            ->where('customer_id',$user)
            ->where(function($q) {
-          		$q->where('status', 0)
-          		->orWhere('status', 1)
-            	->orWhere('status', 5);
-      		})->count();
-      		
-      		if($cusride!=0)
-      		{
-      		   return response()->json([
+              $q->where('status', 0)
+              ->orWhere('status', 1)
+              ->orWhere('status', 5);
+          })->count();
+          
+          if($cusride!=0)
+          {
+             return response()->json([
 
                 'message'=>'An active booking has been found. A new booking cannot be made',           
                 
                 ],408); 
-      		}
-      		else
-      		{
+          }
+          else
+          {
     
                               $type=vehicle_type::where('id',$req->vehicle_type)->first();
                               $frdet=franchise_detail::select('profit')->where('id',$req->franchise)->first();
@@ -276,9 +276,9 @@ class CustomerRideBookings extends Controller
                               $drcharge=$req->ride_fare*$type->driver_profit/100;
                               $admdrcharge=$req->ride_fare-$drcharge;
                               $cdate = date("Y-m-d H:i:s");
-                    					$currentDate = strtotime($cdate);
-                    					$futureDate = $currentDate+(60*1);
-                    					$formatDate = date("Y-m-d H:i:s", $futureDate);
+                              $currentDate = strtotime($cdate);
+                              $futureDate = $currentDate+(60*1);
+                              $formatDate = date("Y-m-d H:i:s", $futureDate);
                           
                             rides_booking::create([
                                     
@@ -403,7 +403,7 @@ class CustomerRideBookings extends Controller
                             
                             ],200);
 
-      		}
+          }
 
       
     } 
@@ -1025,14 +1025,14 @@ class CustomerRideBookings extends Controller
     
   
 
-	public function customer_running_ride()
-		
-	{
+  public function customer_running_ride()
+    
+  {
 
-		$user=Auth::guard('customerapi')->user()->id;
-					
+    $user=Auth::guard('customerapi')->user()->id;
+          
 
-		 $dt=date('Y-m-d');
+     $dt=date('Y-m-d');
 
   $bookdt=rides_booking::where('customer_id',$user)->where('booked_date',$dt)->where('status',0)->first();
 
