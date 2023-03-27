@@ -358,12 +358,18 @@ class CustomerRideBookings extends Controller
                     
                             $body = "Please accept booking";
                     
-                            //$d = $bk->id;
+
                     
-                            $notification = array('title' =>$title , 'body' => $body, 'sound' => 'default', 'badge' => '1');
-                            $data = array('booking_id' =>$bk->id, 'from_location' =>$bk->from_location, 'to_location' =>$bk->to_location, 'fare' =>$bk->total_fare, 'distance' =>$bk->distance, 'type' =>'new_booking');
+          $notification = array('title' =>$title , 'body' => $body, 'sound' => 'default', 'badge' => '1');
+
+          $items = array('booking_id' =>$bk->id, 'from_location' =>$bk->from_location, 'to_location' =>$bk->to_location, 'fare' =>$bk->total_fare, 'distance' =>$bk->distance, 'type' =>'new_booking');
+
+          $content = array('id' =>$bk->id , 'badge' => '1', 'channelKey' => 'new_bookings', 'displayOnForeground' => true, 'notificationLayout' => 'BigPicture', 'showWhen' => true, 'autoDismissible' => true, 'privacy' => 'Private', 'payload' => $items);
                     
-                            $arrayToSend = array('to' => $token, 'notification' => $notification, 'data' => $data, 'priority'=>'high');
+          $arrayToSend = array('to' => $token, 'priority'=>'high', 'mutable_content'=>true', notification' => $notification, 'data' =>  $content);
+
+
+
                             $json = json_encode($arrayToSend);
                     
                             $headers = array();
