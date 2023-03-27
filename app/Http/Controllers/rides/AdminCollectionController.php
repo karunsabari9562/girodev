@@ -31,9 +31,9 @@ class AdminCollectionController extends Controller
 
            $cnt2=DB::table('rides_bookings')->where('booked_date',$dt)
            ->where(function($q) {
-          		$q->where('status', 2)
-            	->orWhere('status', 3);
-      		})
+              $q->where('status', 2)
+              ->orWhere('status', 3);
+          })
            
            ->count();
             
@@ -60,9 +60,9 @@ class AdminCollectionController extends Controller
             $btype="Running Bookings";
            $bookings=rides_booking::where('booked_date',$dt)
            ->where(function($q) {
-          		$q->where('status', 1)
-            	->orWhere('status', 5);
-      		})
+              $q->where('status', 1)
+              ->orWhere('status', 5);
+          })
          
            ->latest()->get();
            return view('admin_ride.collection.TodaysRides',['bookings'=>$bookings,'btype'=>$btype]); 
@@ -72,10 +72,10 @@ class AdminCollectionController extends Controller
             $btype="Unfinished Bookings";
            $bookings=rides_booking::where('booked_date',$dt)
            ->where(function($q) {
-          		$q->where('status', 2)
-          		->orwhere('status', 4)
-            	->orWhere('status', 3);
-      		})
+              $q->where('status', 2)
+              ->orwhere('status', 4)
+              ->orWhere('status', 3);
+          })
            
            ->latest()
            ->get();
@@ -334,7 +334,7 @@ public function driver_rides_list($did,$dat)
            $drid=decrypt($did);
           $ride_fare=ride_booking_history::where('driver_id',$drid)->where('booked_date',$dt)->where('status',6)->sum('driver_fare');
 
-  			$driver=driver_registration::select('name','mobile','driver_id','franchise','id')->where('id',$drid)->first();
+        $driver=driver_registration::select('name','mobile','driver_id','franchise','id')->where('id',$drid)->first();
 
       $booking=ride_booking_history::select('driver_id','from_location','to_location','distance','fare','id','driver_fare','driver_percent','booking_id','total_fare','payment_type','offline_pay_admin')->where('status',6)->where('driver_id',$drid)->where('booked_date',$dt)->latest()->get();
       $cnt=driver_salary::where('status',1)->where('driver_id',$drid)->where('ride_from',$dt)->first();
