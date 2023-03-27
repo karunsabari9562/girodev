@@ -468,7 +468,7 @@ return response()->json([
 				if(rides_booking::where('id',$book_id)->where('driver_id',$user)->where('status',5)->exists())
 		       {
 
-				$bookdt=rides_booking::where('id',$book_id)->first();
+				
 
 
         rides_booking::where('id',$book_id)->update([
@@ -483,6 +483,8 @@ return response()->json([
                    
 
                 ]);
+
+        $bookdt=rides_booking::where('id',$book_id)->first();
 
 				ride_booking_history::updateOrCreate([
 
