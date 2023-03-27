@@ -358,7 +358,7 @@ class CustomerRideBookings extends Controller
                     
                             $body = "Please accept booking";
                     
-                            //$d = $bk->id;
+                            
                     
                             $notification = array('title' =>$title , 'body' => $body, 'sound' => 'default', 'badge' => '1');
                             $data = array('booking_id' =>$bk->id, 'from_location' =>$bk->from_location, 'to_location' =>$bk->to_location, 'fare' =>$bk->total_fare, 'distance' =>$bk->distance, 'type' =>'new_booking');
