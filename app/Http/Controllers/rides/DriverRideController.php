@@ -470,6 +470,20 @@ return response()->json([
 
 				$bookdt=rides_booking::where('id',$book_id)->first();
 
+
+        rides_booking::where('id',$book_id)->update([
+                
+               'status'=>6,
+               'payment_type'=>$req->payment_type,
+                   'payment_status'=>1,
+                   'paid_amount'=>$bookdt->total_fare,
+                   'completed_at'=>date('Y-m-d H:i:s'),
+                   'extra_ride_fee'=>$req->extra_ride_fee,
+                'waiting_charge'=>$req->waiting_charge,
+                   
+
+                ]);
+
 				ride_booking_history::updateOrCreate([
 
 					'bid'   => $book_id,
@@ -538,18 +552,7 @@ return response()->json([
 		]);
 
 
-		rides_booking::where('id',$book_id)->update([
-		            
-		           'status'=>6,
-		           'payment_type'=>$req->payment_type,
-                   'payment_status'=>1,
-                   'paid_amount'=>$bookdt->total_fare,
-                   'completed_at'=>date('Y-m-d H:i:s'),
-                   'extra_ride_fee'=>$req->extra_ride_fee,
-             		'waiting_charge'=>$req->waiting_charge,
-                   
-
-		            ]);
+		
 
 		active_driver::where('dr_id',$bookdt->driver_id)->update([
                    
