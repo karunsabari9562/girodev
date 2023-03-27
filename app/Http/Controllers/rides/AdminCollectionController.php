@@ -336,7 +336,7 @@ public function driver_rides_list($did,$dat)
 
   			$driver=driver_registration::select('name','mobile','driver_id','franchise','id')->where('id',$drid)->first();
 
-      $booking=ride_booking_history::select('driver_id','from_location','to_location','distance','fare','id','driver_fare','driver_percent','booking_id','total_fare')->where('status',6)->where('driver_id',$drid)->where('booked_date',$dt)->latest()->get();
+      $booking=ride_booking_history::select('driver_id','from_location','to_location','distance','fare','id','driver_fare','driver_percent','booking_id','total_fare','payment_type','offline_pay_admin')->where('status',6)->where('driver_id',$drid)->where('booked_date',$dt)->latest()->get();
       $cnt=driver_salary::where('status',1)->where('driver_id',$drid)->where('ride_from',$dt)->first();
       return view('admin_ride.collection.DriverRidesList',['booking'=>$booking,'driver'=>$driver,'ride_fare'=>$ride_fare,'dt'=>$dt,'cnt'=>$cnt]);
 

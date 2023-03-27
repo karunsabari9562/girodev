@@ -397,7 +397,7 @@ else if($req->btype==5)
 
     $sum=ride_booking_history::where('driver_id',$driver->id)->where('booked_date','>=',$req->dfrom)->where('booked_date','<=',$req->dto)->where('status',6)->where('status',6)->sum('driver_fare');
 
-    $booking=ride_booking_history::select('driver_id','from_location','to_location','distance','fare','id','booked_at','driver_fare','driver_percent','booking_id','total_fare')->where('driver_id',$driver->id)->where('booked_date','>=',$req->dfrom)->where('booked_date','<=',$req->dto)->where('status',6)->latest()->get();
+    $booking=ride_booking_history::select('driver_id','from_location','to_location','distance','fare','id','booked_at','driver_fare','driver_percent','booking_id','total_fare','payment_type','offline_pay_admin')->where('driver_id',$driver->id)->where('booked_date','>=',$req->dfrom)->where('booked_date','<=',$req->dto)->where('status',6)->latest()->get();
 
 
      return view('franchise_ride.DriverCollectionHistory',['booking'=>$booking,'sum'=>$sum,'dfrom'=>$req->dfrom,'dto'=>$req->dto,'driver'=>$driver]);
