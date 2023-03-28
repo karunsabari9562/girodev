@@ -610,7 +610,7 @@ public function completed_driver_rides($did)
     return view('franchise_ride.DrMonthlyCompletedRides',['bookings'=>$bookings,'driver'=>$driver,'sum'=>$sum,'sum1'=>$sum1,'sum2'=>$sum2,'sp'=>$sp,'star1'=>$star1,'star2'=>$star2,'star3'=>$star3,'star4'=>$star4,'star5'=>$star5]); 
  
     }
-// nnn
+
       public function rejected_driver_rides($did)
      
     {
