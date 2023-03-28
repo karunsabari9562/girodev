@@ -120,7 +120,7 @@ $time=unfinished_bookings::where('booked_date','>=',$first_day)->where('booked_d
           );
 
   
-
+////
 
  if($req->btype==2)
 {
