@@ -160,16 +160,16 @@ class CustomerRideBookings extends Controller
               $tm=date('H:i:s');
               if($tm>$v_det->timefrom && $tm<$v_det->timeto)
               {
-                $ride_fare=round($fares*$v_det->sp_charge);
-                $tax_amount=round(($ride_fare+$v_det->service_charge)*$v_det->ride_tax/100);
+                $ride_fare=$fares*$v_det->sp_charge;
+                $tax_amount=($ride_fare+$v_det->service_charge)*$v_det->ride_tax/100;
                 $total_fare=$ride_fare+$tax_amount+$v_det->service_charge;
                 $extra_charge_status=1;
 
               }
               else
               {
-                $ride_fare=round($fares);
-                $tax_amount=round(($ride_fare+$v_det->service_charge)*$v_det->ride_tax/100);
+                $ride_fare=$fares;
+                $tax_amount=($ride_fare+$v_det->service_charge)*$v_det->ride_tax/100;
                 $total_fare=$ride_fare+$tax_amount+$v_det->service_charge;
                 $extra_charge_status=0;
               }
@@ -177,8 +177,8 @@ class CustomerRideBookings extends Controller
             }
             else
             {
-              $ride_fare=round($fares);
-              $tax_amount=round(($ride_fare+$v_det->service_charge)*$v_det->ride_tax/100);
+              $ride_fare=$fares;
+              $tax_amount=($ride_fare+$v_det->service_charge)*$v_det->ride_tax/100;
               $total_fare=$ride_fare+$tax_amount+$v_det->service_charge;
               $extra_charge_status=0;
             }
