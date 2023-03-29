@@ -29,8 +29,8 @@ body {
     justify-content: center;
 }
 
-.div {
-    width: 17.125rem;
+.img-wrap {
+    width: 18.125rem;
     height: 28.4rem;
     background-color: white;
     padding: 25px;
@@ -39,10 +39,27 @@ body {
     border:2px solid #ffc107;
 }
 
-img {
-    width: 20.125rem;
-    border-radius: 25px;
+.img-block{
+
+    width: 130px;
+    height: 130px;
+    overflow: hidden;
+    margin:0 auto;
+    border: 5px solid #fff;
+    border-radius: 15px;
 }
+.img-block .imm{
+    
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+
+    border-radius: 15px;
+
+}
+
+
 
 .div2 {
     padding-left: 20px;
@@ -62,13 +79,13 @@ p {
 <body>
     <center>
     <div class="row">
-    <div class="div" style="background-repeat: no-repeat;
+    <div class="img-wrap" style="background-repeat: no-repeat;
     background-size: cover; background-image: url(images/card-fnd-bg.png)">
       <h1><img src="{{ public_path('admin/img/logo/logo2.png')}}" alt="AdminLTELogo" style="width: 65%;"></h1>
        
-        
-         <img style="width: 130px;border: 5px solid #fff;height: 130px;
-    background-size: cover;" src="{{ public_path($driver->photo)}}" alt="" >
+        <div class="img-block">
+         <img src="{{ public_path($driver->photo)}}" alt="" width="100" class="imm">
+         </div>
         <div >
             <h1>{{$driver->name}}</h1>
             <table style="position: absolute;left: 111px;">
@@ -108,7 +125,7 @@ p {
         
     </div>
 
-      <div class="div" style="position: absolute;left: 350px;top:0px;background-color: #FFFFFF;">
+      <div class="img-wrap" style="position: absolute;left: 350px;top:0px;background-color: #FFFFFF;">
      
 
 
@@ -133,15 +150,16 @@ p {
                     <td style="font-size: 13px;">{{$driver->GetVType->type}} </td>
                 </tr>
 
-                <tr></tr>
+          
                 
                 <tr style="vertical-align: top;">
                 
                     <td style="font-weight: 200;font-size: 13px;">ADDRESS</td>
                     <td>:</td>
                     <td style="font-size: 13px;position: absolute;top: 60px;">{{$driver->house_name}}, {{$driver->location}}, {{$driver->GetDistrict->district}}, {{$driver->GetState->state}}, {{$driver->pin}}</td>
+                    
                 </tr>
-               <tr></tr>
+      
                
                  <tr>
                 

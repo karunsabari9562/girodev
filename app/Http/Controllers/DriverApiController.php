@@ -20,7 +20,7 @@ use App\Models\vehicle_type;
 use App\Models\vehicle_model;
 use App\Models\driver_reg_fee;
 use App\Models\driver_docs_reupload;
-
+use Image,Storage;
 
 class DriverApiController extends Controller
 {
@@ -492,9 +492,25 @@ class DriverApiController extends Controller
 	              		$imgWillDelete = public_path() . $user->photo;
 	              		
 	            		File::delete($imgWillDelete);
-	          			$image = $req->file('img');
-	            		 $new_name = "/drivers/" . time() . '.' . $image->getClientOriginalExtension();
-	            		$image->move(public_path('drivers'), $new_name);  
+
+	            		$file = $req->file('img');
+	$new_name = "/drivers/" . time() . '.' . $file->getClientOriginalExtension();
+// Load the image from storage
+$image = Image::make($file);
+
+// Resize the image
+$image->resize(800, 600, function ($constraint) {
+    $constraint->aspectRatio();
+    $constraint->upsize();
+});
+
+// Automatically correct the image orientation based on EXIF data
+$image->orientate();
+
+// Save the resized image
+$image->save(public_path($new_name));
+
+
         		 	}
 		
 

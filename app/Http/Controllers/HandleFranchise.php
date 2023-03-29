@@ -651,6 +651,7 @@ $frid=decrypt($fid);
      
 
          $pdf = PDF::loadView('handlefranchise.DriverIdcard',['driver'=>$driver]);
+
        $pdf->getDomPDF()->setHttpContext(
         stream_context_create([
             'ssl' => [
