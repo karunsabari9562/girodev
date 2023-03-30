@@ -926,7 +926,8 @@ $dt=date('Y-m-d');
 		$bk=rides_booking::select('id','driver_id','status','from_latitude','from_longitude','from_location','to_location','total_fare','distance','to_latitude','to_longitude','customer_id')
 		->where('driver_id',$user)
 		->where(function($q) {
-		  $q->where('status', 1)
+		  $q->where('status', 0)
+      ->orWhere('status', 1)
 		  ->orWhere('status', 5);
 		})
 		->limit(1)
