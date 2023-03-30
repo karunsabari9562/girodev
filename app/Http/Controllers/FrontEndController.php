@@ -86,7 +86,7 @@ class FrontEndController extends Controller
             
         ];
 
-        Mail::to('karunsabari@gmail.com')->send(new EnquiryMail($details));
+        Mail::to('info@girokab.com')->send(new EnquiryMail($details));
         $data['success']='success';
 
       }
