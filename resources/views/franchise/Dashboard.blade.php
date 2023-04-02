@@ -432,9 +432,9 @@ $cnt2=DB::table('driver_registrations')->where('franchise',$franchises)->where('
                     <tr>
                       <td>{{$loop->iteration}}</td>
                       <td>{{$b->GetCustomer->name}}</td>
-                      <td title="{{ $b->from_location }}" style="cursor: pointer;">{{ Str::limit($b->from_location, 20, '...') }}</td>
+                    <td title="{{ $b->from_location }}" style="cursor: pointer;">{{ Str::limit($b->from_location, 20, '...') }}</td>
            
-                      <td title="{{ $b->to_location}}" style="cursor: pointer;">{{ Str::limit($b->to_location}}</td>
+                      <td title="{{ $b->to_location}}" style="cursor: pointer;">{{ Str::limit($b->to_location, 20, '...')}}</td>
                       <td><a href="/active-driver-profile/{{encrypt($b->driver_id)}}" target="_blank">{{$b->GetDriver->driver_id}}</a></td>
 
                       @switch($b->status)
