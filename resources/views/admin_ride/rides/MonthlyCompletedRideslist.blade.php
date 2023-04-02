@@ -151,7 +151,7 @@ completed-rides
                     <td>{{$loop->iteration}}</td>
                       <td>{{$b->booking_id}}</td>
                     <td>{{$b->GetCustomer->name}}<br>Mob: {{$b->GetCustomer->mobile}}</td>
-                    <td title="From : {{ $b->from_location}}<br>To : {{ $b->to_location }}" style="cursor: pointer;">From : {{ Str::limit($b->from_location, 20, '...') }}<br>
+                    <td title="From : {{ $b->from_location}} , To : {{ $b->to_location }}" style="cursor: pointer;">From : {{ Str::limit($b->from_location, 20, '...') }}<br>
                       To : {{ Str::limit($b->to_location, 20, '...') }}<br>
                       
                       @if($b->night_ride==0)
