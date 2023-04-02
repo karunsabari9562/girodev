@@ -200,7 +200,7 @@ dashboard
                        ->where('booked_date',$dt)
                         ->where(function($q) {
                        $q->where('status', 2)
-                       ->where('status', 4)
+                       ->orwhere('status', 4)
                        ->orWhere('status', 3);
                         })
                       ->count();

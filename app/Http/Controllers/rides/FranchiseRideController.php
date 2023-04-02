@@ -304,7 +304,7 @@ else if($req->btype==5)
            $sum2=rides_booking::where('franchise',$franchise)->where('booked_date',$dt)->where('status',6)->where('payment_type',2)->sum('paid_amount');
            $sp=rides_booking::where('franchise',$franchise)->where('booked_date',$dt)->where('status',6)->where('night_ride',1)->count();
 
-      $driver=rides_booking::select('driver_id')->where('franchise',$franchise)->where('status',6)->where('booked_date',$dt)->groupBy('driver_id')->get();
+      $driver=rides_booking::select('driver_id','booked_date')->where('franchise',$franchise)->where('status',6)->where('booked_date',$dt)->groupBy('driver_id')->get();
            return view('franchise_ride.TodaysCollection',['driver'=>$driver,'cnt'=>$cnt,'sum'=>$sum,'sum1'=>$sum1,'sum2'=>$sum2,'sp'=>$sp,'ride_fare'=>$ride_fare,'tax'=>$tax,'sr'=>$sr]);  
 
     }

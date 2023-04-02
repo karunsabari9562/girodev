@@ -142,8 +142,8 @@
                         <strong><u>Ride Status</u></strong>
                         <address>
                         <span class="badge badge-info">completed</span><br>
-                         <strong>Started At </strong> : @if($bookings->started_at!=''){{$bookings->started_at->format('H:i a')}}@endif<br>
-                         <strong>Completed At </strong> : @if($bookings->started_at!=''){{$bookings->completed_at->format('H:i a')}}@endif<br>
+                         <strong>Started At </strong> : @if($bookings->started_at!=''){{$bookings->started_at->format('h:i a')}}@endif<br>
+                         <strong>Completed At </strong> : @if($bookings->started_at!=''){{$bookings->completed_at->format('h:i a')}}@endif<br>
                         @if($bookings->payment_status==1) <strong>Payment Status </strong> : @if($bookings->payment_status==1)Paid @else Pending @endif<br>
                         <strong> Payment Type </strong> : @if($bookings->payment_type==1)Online @else Offline @endif<br>
                          <strong>Paid Amount </strong> : Rs.{{$bookings->paid_amount}}<br>

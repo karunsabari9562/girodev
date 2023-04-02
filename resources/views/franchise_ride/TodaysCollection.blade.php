@@ -154,7 +154,7 @@
 
                     @php
                     $dt=date('Y-m-d');
-                    $cnt=DB::table('rides_bookings')->where('driver_id',$b->driver_id)->where('status',6)->count();
+                    $cnt=DB::table('rides_bookings')->where('driver_id',$b->driver_id)->where('status',6)->where('booked_date',$dt)->count();
                     @endphp
                     
                   <tr>

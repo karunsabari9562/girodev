@@ -101,7 +101,7 @@
                   <tr>
                     <td>{{$loop->iteration}}</td>
                    
-                   <td>{{ $dj->regenerated_at}}</td>
+                   <td>{{ date("d-m-Y", strtotime($dj->regenerated_at ))}}</td>
                      <td>{{$dj->reason}}</td>
                      
                   </tr>

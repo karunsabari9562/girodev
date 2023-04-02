@@ -78,7 +78,7 @@
                   <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$b->GetCustomer->name}}<br>Mob: {{$b->GetCustomer->mobile}}</td>
-                    <td>From : {{ Str::limit($b->from_location, 20, '...') }}<br>
+                    <td title="From : {{ $b->from_location}}<br>To : {{ $b->to_location }}" style="cursor: pointer;">From : {{ Str::limit($b->from_location, 20, '...') }}<br>
                       To : {{ Str::limit($b->to_location, 20, '...') }}<br>
                       Distance : {{$b->distance}}km <br>
                       Booked At :{{$b->booked_at->format('h:i a')}}<br>
@@ -135,7 +135,7 @@
 
                        @case(5)
                       <td><span class="badge badge-success">Started</span><br>
-                        Started At : @if($b->started_at!=''){{$b->started_at->format('H:i a')}}@endif
+                        Started At : @if($b->started_at!=''){{$b->started_at->format('h:i a')}}@endif
                       </td>
                        
                        <td>@if($b->payment_status==1)Payment Status : @if($b->payment_status==1)Paid @else Pending @endif<br>
@@ -148,7 +148,7 @@
 
                        @case(6)
                       <td><span class="badge badge-info">completed</span><br>
-                        Started At :  @if($b->started_at!=''){{$b->started_at->format('H:i a')}}@endif<br>Completed At :  @if($b->started_at!=''){{$b->completed_at->format('H:i a')}}@endif
+                        Started At :  @if($b->started_at!=''){{$b->started_at->format('h:i a')}}@endif<br>Completed At :  @if($b->started_at!=''){{$b->completed_at->format('h:i a')}}@endif
 
                       </td>
                       

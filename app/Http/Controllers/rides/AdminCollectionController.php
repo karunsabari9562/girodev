@@ -320,7 +320,7 @@ $franchise=franchise_detail::select('id','franchise_name')->orderBy('franchise_n
            $sum2=rides_booking::where('booked_date',$dt)->where('status',6)->where('payment_type',2)->sum('paid_amount');
            $sp=rides_booking::where('booked_date',$dt)->where('status',6)->where('night_ride',1)->count();
 
-      $driver=rides_booking::select('driver_id','franchise')->where('status',6)->where('booked_date',$dt)->groupBy('driver_id')->get();
+      $driver=rides_booking::select('driver_id','franchise','booked_date')->where('status',6)->where('booked_date',$dt)->groupBy('driver_id')->get();
            return view('admin_ride.collection.DriverCollectionHistory',['driver'=>$driver,'cnt'=>$cnt,'sum'=>$sum,'sum1'=>$sum1,'sum2'=>$sum2,'sp'=>$sp,'ride_fare'=>$ride_fare,'tax'=>$tax,'sr'=>$sr,'dat'=>$dt]);
 
 }

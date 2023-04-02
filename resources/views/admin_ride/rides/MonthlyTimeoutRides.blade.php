@@ -71,7 +71,7 @@ timeout-rides
                     <td>{{$loop->iteration}}</td>
                     <td>{{$b->GetCustomer->name}}<br>Mob: {{$b->GetCustomer->mobile}}</td>
                               <td>{{$b->booked_at->format('d-m-Y h:i a')}}</td>
-                    <td>From : {{ Str::limit($b->from_location, 20, '...') }}<br>
+                    <td title="From : {{ $b->from_location}}<br>To : {{ $b->to_location }}" style="cursor: pointer;">From : {{ Str::limit($b->from_location, 20, '...') }}<br>
                       To : {{ Str::limit($b->to_location, 20, '...') }}</td>
                     
                    <td><a href="/girokab-admin/active-driver-profile/{{encrypt($b->driver_id)}}" target="_blank">{{$b->GetDriver->driver_id}}</a></td>

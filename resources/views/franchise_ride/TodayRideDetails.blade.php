@@ -156,7 +156,7 @@
                         <strong>Ride Status</strong>
                         <address>
                         <span class="badge badge-success">Started</span><br>
-                        <strong>Started At</strong> : @if($bookings->started_at!=''){{$bookings->started_at->format('H:i a')}}@endif<br>
+                        <strong>Started At</strong> : @if($bookings->started_at!=''){{$bookings->started_at->format('h:i a')}}@endif<br>
                         @if($bookings->payment_status==1)<strong>Payment Status</strong> : @if($bookings->payment_status==1)Paid @else Pending @endif<br>
                         <strong>Payment Type</strong> : @if($bookings->payment_type==1)Online @else Offline @endif<br>
                        <strong> Paid Amount</strong> : Rs.{{$bookings->paid_amount}}<br>
@@ -172,8 +172,8 @@
                         <strong>Ride Status</strong>
                         <address>
                         <span class="badge badge-info">completed</span><br>
-                         <strong>Started At </strong> : @if($bookings->started_at!=''){{$bookings->started_at->format('H:i a')}}@endif<br>
-                         <strong>Completed At </strong> : @if($bookings->started_at!=''){{$bookings->completed_at->format('H:i a')}}@endif<br>
+                         <strong>Started At </strong> : @if($bookings->started_at!=''){{$bookings->started_at->format('h:i a')}}@endif<br>
+                         <strong>Completed At </strong> : @if($bookings->started_at!=''){{$bookings->completed_at->format('h:i a')}}@endif<br>
                         @if($bookings->payment_status==1) <strong>Payment Status </strong> : @if($bookings->payment_status==1)Paid @else Pending @endif<br>
                         <strong> Payment Type </strong> : @if($bookings->payment_type==1)Online @else Offline @endif<br>
                          <strong>Paid Amount </strong> : Rs.{{$bookings->paid_amount}}<br>
@@ -205,13 +205,13 @@
                         
                         <br> <strong>Div.approval </strong> : 
                         @if($bookings->offline_pay_franchise==1)
-                        Approved at{{$bookings->offline_pay_franchisedt->format('H:i a')}}
+                        Approved at{{$bookings->offline_pay_franchisedt->format('h:i a')}}
                         @else
                         <span class="badge badge-warning">pending</span>
                         @endif<br>
                          <strong>Admin approval  </strong>: 
                         @if($bookings->offline_pay_admin==1)
-                        Approved at{{$bookings->offline_pay_admindt->format('H:i a')}}
+                        Approved at{{$bookings->offline_pay_admindt->format('h:i a')}}
                         @else
                         <span class="badge badge-warning">pending</span><br>
                         @endif<br>

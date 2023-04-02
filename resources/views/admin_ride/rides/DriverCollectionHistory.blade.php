@@ -85,7 +85,7 @@
                      @foreach($booking as $b) 
                     <tr>
                       <td>{{$loop->iteration}}</td>
-                      <td>{{$b->from_location}} to {{$b->to_location}}<br></td>
+                      <td>{{$b->from_location}} to {{$b->to_location}}</td>
                       <td>
                       {{$b->booked_at->format('d-m-Y')}}
                       </td>
