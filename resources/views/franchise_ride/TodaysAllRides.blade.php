@@ -140,7 +140,7 @@
                     <th>Driver</th>
                     <th>Status</th>
                   
-                    <th>Payment</th>
+   <!--                  <th>Payment</th> -->
                     <th>Review/Reason</th>
                     <th>Details</th>
                     
@@ -235,10 +235,10 @@
                         Started At :  @if($b->started_at!=''){{$b->started_at->format('h:i a')}}@endif<br>Completed At :  @if($b->started_at!=''){{$b->completed_at->format('H:i a')}}@endif
                       </td>
                       
-                       <td>Payment Status : @if($b->payment_status==1)Paid @else Pending @endif<br>
+             <!--           <td>Payment Status : @if($b->payment_status==1)Paid @else Pending @endif<br>
                           Payment Type : @if($b->payment_type==1)Online @else Offline @endif<br>
                           Paid Amount : Rs.{{$b->paid_amount}}<br>
-                          Reference Id : {{$b->reference_id}}<br></td>
+                          Reference Id : {{$b->reference_id}}<br></td> -->
                        
                     
                        <td>{{$b->review}}<br>
