@@ -104,6 +104,9 @@
                                         alt="mail icon">girokabservices@gmail.com</a></li>
                             <li><a href="https://api.whatsapp.com/send?phone=+919895065567 &text=Hello"><img
                                         src="{{asset('homepage/images/phone.svg')}}" alt="phone icon">+919895 065 567</a></li>
+
+                             <li><a><img
+                                        src="{{asset('homepage/location-map.svg')}}" alt="phone icon">AL NOOR TOWER<br> kannur city, near D.I.S.G.H SCHOOL<br> KANNUR, 670003</a></li>            
                         </ul>
                     </div>
                 </div>
