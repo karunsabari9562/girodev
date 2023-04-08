@@ -38,14 +38,19 @@ class CustomerRegApiController extends Controller
 					}
 					else
 					{
-						$otp=rand(100001,999990);
-						
+						//$otp=rand(100001,999990);
+						$otp="111111";
+						$date = date("Y-m-d H:i:s");
+						$currentDate = strtotime($date);
+						$futureDate = $currentDate+(60*5);
+						$formatDate = date("Y-m-d H:i:s", $futureDate);	
 						
 						customer_registration::create([
 							
 						'name'=>$req->name,
 						'mobile'=>$req->mobile,
-						'login_otp'=>$otp
+						'login_otp'=>$otp,
+						'otp_expiry'=>$formatDate
 						
 						]);
 
@@ -96,10 +101,16 @@ class CustomerRegApiController extends Controller
 				$customer_det=customer_registration::select('id','mobile','login_otp','status')->where('mobile',$req->mobile)->first();
 						if($customer_det)
 							{
-					$otp=rand(100001,999990);
+					//$otp=rand(100001,999990);
+					$otp="111111";
+					$date = date("Y-m-d H:i:s");
+						$currentDate = strtotime($date);
+						$futureDate = $currentDate+(60*5);
+						$formatDate = date("Y-m-d H:i:s", $futureDate);			
 			
 				customer_registration::where('mobile',$req->mobile)->update([
 				'login_otp'=>$otp,
+				'otp_expiry'=>$formatDate
 					
 				]);
 
@@ -148,26 +159,40 @@ class CustomerRegApiController extends Controller
 
 			
 
-				$user=customer_registration::select('id','status','mobile','login_otp')->where('mobile',$req->mobile)->first();
+				$user=customer_registration::select('id','status','mobile','login_otp','otp_expiry')->where('mobile',$req->mobile)->first();
 				 
 				 if($user)
 					{
 						if($req->otp==$user->login_otp)
 							{
-						$token=$user->createToken('customer-app',['customer']);	
 
-							customer_registration::where('mobile',$req->mobile)->update([
-							'login_otp'=>'',
-							'device_key'=>$req->device_key,
+								// $otdt=date("Y-m-d H:i:s");
+								// if($user->otp_expiry<$otdt)
+								// {
+								// 	customer_registration::where('mobile',$req->mobile)->update([
+									
+								// 	'login_otp'=>'',
+							
+							 //        ]);
+								// 	return response()->json(['message'=>'Otp Expired !'],400);
+								// }
+								// else
+								// {
+								$token=$user->createToken('customer-app',['customer']);	
+
+								customer_registration::where('mobile',$req->mobile)->update([
+								'login_otp'=>'',
+								'device_key'=>$req->device_key,
 					
-						]);
-						return response()->json([
+								]);
+								return response()->json([
 
-						'token'=>$token->accessToken,	
-						'message'=>'Login success.'	
+								'token'=>$token->accessToken,	
+								'message'=>'Login success.'	
 
-						],200);
-						}
+								],200);
+							}
+						// }
 					else
 					{
 					return response()->json(['message'=>'Incorrect otp !'],400);

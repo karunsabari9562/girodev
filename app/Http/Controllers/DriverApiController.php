@@ -59,7 +59,8 @@ class DriverApiController extends Controller
 
 				if (driver_registration::where('mobile', $req->mobile)->exists()) 
 					{
-						$otp=rand(100001,999999);
+						//$otp=rand(100001,999999);
+						$otp="111111";	
 						$date = date("Y-m-d H:i:s");
 						$currentDate = strtotime($date);
 						$futureDate = $currentDate+(60*5);
@@ -112,8 +113,8 @@ class DriverApiController extends Controller
 					else
 					{
 						$dr_id=rand(10001,99999);
-						$otp=rand(100001,999999);
-						//$otp="111111";
+						//$otp=rand(100001,999999);
+						$otp="111111";
 
 						$date = date("Y-m-d H:i:s");
 						$currentDate = strtotime($date);
@@ -201,18 +202,18 @@ class DriverApiController extends Controller
 						if($req->otp==$user->login_otp)
 							{
 
-								$otdt=date("Y-m-d H:i:s");
-								if($user->otp_expiry<$otdt)
-								{
-									driver_registration::where('id',$user->id)->update([
+								// $otdt=date("Y-m-d H:i:s");
+								// if($user->otp_expiry<$otdt)
+								// {
+								// 	driver_registration::where('id',$user->id)->update([
 									
-									'login_otp'=>'',
+								// 	'login_otp'=>'',
 							
-							        ]);
-									return response()->json(['message'=>'Otp Expired !'],400);
-								}
-								else
-								{
+							 //        ]);
+								// 	return response()->json(['message'=>'Otp Expired !'],400);
+								// }
+								// else
+								// {
 
 
 								$token=$user->createToken('driver-app',['driver']);
@@ -250,7 +251,7 @@ class DriverApiController extends Controller
 
 								],200);
 							}
-						}
+						// }
 
 						else
 							{
