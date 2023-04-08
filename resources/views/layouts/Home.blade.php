@@ -106,7 +106,7 @@
                                         src="{{asset('homepage/images/phone.svg')}}" alt="phone icon">+919895 065 567</a></li>
 
                              <li><a><img
-                                        src="{{asset('homepage/location-map.svg')}}" alt="phone icon">AL NOOR TOWER<br> kannur city, near D.I.S.G.H SCHOOL<br> KANNUR, 670003</a></li>            
+                                        src="{{asset('homepage/images/location-map.svg')}}" alt="phone icon">AL NOOR TOWER<br> kannur city, near D.I.S.G.H SCHOOL<br> KANNUR, 670003</a></li>            
                         </ul>
                     </div>
                 </div>
