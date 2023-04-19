@@ -23,8 +23,8 @@
 		$merchant_data.=$key.'='.$value.'&';
 	}
 
-	print_r($merchant_data);
-	die;
+	// print_r($merchant_data);
+	// die;
 
 	$encrypted_data=encrypts($merchant_data,$working_key); // Method for encrypting the data.
 

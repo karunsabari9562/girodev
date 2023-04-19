@@ -28,7 +28,7 @@
 					<td>Order Id	:</td><td><input type="text" name="order_id" value="112"/></td>
 				</tr>
 				<tr>
-					<td>Amount	:</td><td><input type="text" name="amount" value="10.00" /></td>
+					<td>Amount	:</td><td><input type="text" name="amount" value="10" /></td>
 				</tr>
 				<tr>
 					<td>Currency	:</td><td><input type="text" name="currency" value="INR"/></td>
