@@ -19,8 +19,8 @@
 		$merchant_data.=$key.'='.urlencode($value).'&';
 	}
 
-	print_r($merchant_data);
-	die;
+	// print_r($merchant_data);
+	// die;
 
 	$encrypted_data=encrypt($merchant_data,$working_key); // Method for encrypting the data.
 
