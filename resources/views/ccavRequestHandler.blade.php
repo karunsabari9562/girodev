@@ -11,7 +11,7 @@
 
 	error_reporting(0);
 	
-	$merchant_data='2288915';
+	$merchant_data='';
 	$working_key='AVUO48KD41AU46OUUA';//Shared by CCAVENUES
 	$access_code='FA227F8AA1C5CD53181057BE5D1E8025';//Shared by CCAVENUES
 	
