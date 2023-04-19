@@ -8,7 +8,8 @@
 </script>
 </head>
 <body>
-	<form method="post" name="customerData" action="ccavRequestHandler.php">
+	<form method="post" name="customerData" action="/ccavRequestHandler">
+		@csrf
 		<table width="40%" height="100" border='1' align="center"><caption><font size="4" color="blue"><b>Integration Kit</b></font></caption></table>
 			<table width="40%" height="100" border='1' align="center">
 				<tr>
