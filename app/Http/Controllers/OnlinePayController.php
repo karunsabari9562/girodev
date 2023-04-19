@@ -18,15 +18,18 @@ public function create()
     public function payhand(Request $req)
     {
     	$allitem=$req->all();
+
+
      
       return view('ccavRequestHandler',['allitem'=>$allitem]);
 
     }
 
-    public function payreshand()
+    public function payreshand(Request $req)
     {
-     
-      return view('ccavResponseHandler');
+     	print_r($allitem);
+    	// die;
+      return view('ccavResponseHandler',['allitem'=>$allitem]);
 
     }
 

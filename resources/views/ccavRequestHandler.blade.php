@@ -1,21 +1,21 @@
 <html>
 <head>
-<title> Non-Seamless-kit</title>
+<title> Custom Form Kit </title>
 </head>
 <body>
 <center>
 
-
+<!--  -->
 <?php 
 
-	//error_reporting(0);
+	error_reporting(0);
 	
 	$merchant_data='2288915';
 	$working_key='AVUO48KD41AU46OUUA';//Shared by CCAVENUES
 	$access_code='FA227F8AA1C5CD53181057BE5D1E8025';//Shared by CCAVENUES
 	
-	foreach ($allitem as $key => $value){
-		$merchant_data.=$key.'='.$value.'&';
+	foreach ($_POST as $key => $value){
+		$merchant_data.=$key.'='.urlencode($value).'&';
 	}
 
 	$encrypted_data=encrypt($merchant_data,$working_key); // Method for encrypting the data.

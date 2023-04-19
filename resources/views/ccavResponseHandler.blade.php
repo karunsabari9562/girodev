@@ -1,10 +1,10 @@
-
+<?php include('Crypto.php')?>
 <?php
 
 	error_reporting(0);
 	
 	$workingKey='FA227F8AA1C5CD53181057BE5D1E8025';		//Working Key should be provided here.
-	$encResponse=$_POST["encResp"];			//This is the response sent by the CCAvenue Server
+	$encResponse=$allitem["encResp"];			//This is the response sent by the CCAvenue Server
 	$rcvdString=decrypt($encResponse,$workingKey);		//Crypto Decryption used as per the specified working key.
 	$order_status="";
 	$decryptValues=explode('&', $rcvdString);
@@ -43,7 +43,7 @@
 	for($i = 0; $i < $dataSize; $i++) 
 	{
 		$information=explode('=',$decryptValues[$i]);
-	    	echo '<tr><td>'.$information[0].'</td><td>'.$information[1].'</td></tr>';
+	    	echo '<tr><td>'.$information[0].'</td><td>'.urldecode($information[1]).'</td></tr>';
 	}
 
 	echo "</table><br>";
