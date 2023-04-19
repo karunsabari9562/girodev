@@ -46,6 +46,21 @@ Refund-Policy
                     <div class="screen-info" data-aos="fade-up">
                        
                         <h2>Refund Policy</h2>
+
+                        <p><img class="tick-icon" src="{{asset('homepage/images/tick.svg')}}" alt="tick icon">Our return policy lasts 7 days. If any customer is eligible for refund, they will receive the amount from our team via online within 7 days of their unsuccessful ride. 
+                        </p>
+
+                         <p><img class="tick-icon" src="{{asset('homepage/images/tick.svg')}}" alt="tick icon">To be eligible for a refund, the Giro Kab team will verify the ride and if our team is satisfied, they will provide the refund. 
+                        </p>
+
+                         <p><img class="tick-icon" src="{{asset('homepage/images/tick.svg')}}" alt="tick icon">If the ride is incomplete due to the misbehavior from the customer or if our team finds out that the customer is falsely asking for a refund, they won’t be eligible for a refund.
+ 
+                        </p>
+
+                        <p><img class="tick-icon" src="{{asset('homepage/images/tick.svg')}}" alt="tick icon">The customer should cancel the ride if they face any kind of misbehavior from the driver so that they will be eligible for a refund.If they didn’t cancel the ride via our mobile app, they can contact our nearest office.
+ 
+                        </p>
+
                         <p><img class="tick-icon" src="{{asset('homepage/images/tick.svg')}}" alt="tick icon">   Transactions, transaction price and all commercial terms such as delivery, dispatch of products and/or services  are  as  per  principal  to  principal bipartite contractual obligations between Service Agents and clients and the payment facility is merely used by Service Agents and clients to facilitate the completion of transactions. Use of the payment facility  shall  not  render GiroKab liable or responsible for non–delivery, non-receipt, non-payment, damage, breach of representations and warranties,  non-provision  of  after- sales or warranty services or fraud as regards the products and/or services listed on the Platform.
                         </p>
 

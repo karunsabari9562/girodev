@@ -63,7 +63,8 @@
                                         </div>
                                         <div>
                                             <h6>Location</h6>
-                                            <p>Kannur, City</p>
+                                            <p>AL NOOR TOWER, Kannur City, near D.I.S.G.H School, Kannur, 670003</p>
+                                           
                                         </div>
                                     </div>
                                     <div class="contactsingle d-flex">
