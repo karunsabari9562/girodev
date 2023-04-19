@@ -215,7 +215,7 @@
 <!-- <script language="javascript" type="text/javascript" src="json.js"></script>-->
 <!-- <script src="jquery-1.7.2.min.js"></script>-->
  <script language="javascript" type="text/javascript" src="{{asset('pay/json.js')}}"></script>
- <script src="{{asset('jquery-1.7.2.min.js')}}"></script>
+ <script src="{{asset('pay/jquery-1.7.2.min.js')}}"></script>
 <script type="text/javascript">
   $(function(){
   
@@ -228,7 +228,7 @@
 	 	6)error -  This parameter will enable you to troubleshoot any configuration related issues. It will provide error description.
 	 */	  
   	  var jsonData;
-  	  var access_code="" // shared by CCAVENUE 
+  	  var access_code="AVUO48KD41AU46OUUA" // shared by CCAVENUE 
 	  var amount="6000.00";
   	  var currency="INR";
   	  
