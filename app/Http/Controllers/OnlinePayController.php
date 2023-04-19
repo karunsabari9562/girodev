@@ -15,10 +15,11 @@ public function create()
 
     }
 
-    public function payhand()
+    public function payhand(Request $req)
     {
+    	$allitem=$req->all();
      
-      return view('ccavRequestHandler');
+      return view('ccavRequestHandler',['allitem'=>$allitem]);
 
     }
 
@@ -28,7 +29,20 @@ public function create()
       return view('ccavResponseHandler');
 
     }
-	
+
+    public function fedcreate()
+    {
+     
+      return view('meTrnReq');
+
+    }
+
+public function meTrnPay()
+    {
+     
+      return view('meTrnPay');
+
+    }	
 
 
 }

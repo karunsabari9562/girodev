@@ -14,7 +14,7 @@
 	$working_key='AVUO48KD41AU46OUUA';//Shared by CCAVENUES
 	$access_code='FA227F8AA1C5CD53181057BE5D1E8025';//Shared by CCAVENUES
 	
-	foreach ($_POST as $key => $value){
+	foreach ($allitem as $key => $value){
 		$merchant_data.=$key.'='.$value.'&';
 	}
 
