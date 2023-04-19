@@ -22,7 +22,7 @@
 					<td>TID	:</td><td><input type="text" name="tid" id="tid" readonly /></td>
 				</tr>
 				<tr>
-					<td>Merchant Id	:</td><td><input type="text" name="merchant_id" value=""/></td>
+					<td>Merchant Id	:</td><td><input type="text" name="merchant_id" value="2288915"/></td>
 				</tr>
 				<tr>
 					<td>Order Id	:</td><td><input type="text" name="order_id" value="123654789"/></td>
@@ -34,10 +34,10 @@
 					<td>Currency	:</td><td><input type="text" name="currency" value="INR"/></td>
 				</tr>
 				<tr>
-					<td>Redirect URL	:</td><td><input type="text" name="redirect_url" value="http://localhost/ccavResponseHandler.php"/></td>
+					<td>Redirect URL	:</td><td><input type="text" name="redirect_url" value="https://girokab.com/ccavResponseHandler"/></td>
 				</tr>
 			 	<tr>
-			 		<td>Cancel URL	:</td><td><input type="text" name="cancel_url" value="http://localhost/ccavResponseHandler.php"/></td>
+			 		<td>Cancel URL	:</td><td><input type="text" name="cancel_url" value="https://girokab.com/ccavResponseHandler"/></td>
 			 	</tr>
 			 	<tr>
 					<td>Language	:</td><td><input type="text" name="language" value="EN"/></td>
@@ -233,7 +233,7 @@
   	  var currency="INR";
   	  
       $.ajax({
-           url:'https://secure.ccavenue.com/transaction/transaction.do?command=getJsonData&access_code='+access_code+'&currency='+currency+'&amount='+amount,
+           url:'https://test.ccavenue.com/transaction/transaction.do?command=getJsonData&access_code='+access_code+'&currency='+currency+'&amount='+amount,
            dataType: 'jsonp',
            jsonp: false,
            jsonpCallback: 'processData',
