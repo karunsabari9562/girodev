@@ -1,4 +1,4 @@
-<?php include('Crypto.php')?>
+
 <?php
 
 	error_reporting(0);
@@ -43,7 +43,7 @@
 	for($i = 0; $i < $dataSize; $i++) 
 	{
 		$information=explode('=',$decryptValues[$i]);
-	    	echo '<tr><td>'.$information[0].'</td><td>'.urldecode($information[1]).'</td></tr>';
+	    	echo '<tr><td>'.$information[0].'</td><td>'.$information[1].'</td></tr>';
 	}
 
 	echo "</table><br>";

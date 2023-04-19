@@ -1,11 +1,12 @@
+
+
 <html>
 <head>
-<title> Custom Form Kit </title>
+<title> Non-Seamless-kit</title>
 </head>
 <body>
 <center>
 
-<!--  -->
 
 <?php 
 
@@ -16,11 +17,8 @@
 	$access_code='AVUO48KD41AU46OUUA';//Shared by CCAVENUES
 	
 	foreach ($allitem as $key => $value){
-		$merchant_data.=$key.'='.urlencode($value).'&';
+		$merchant_data.=$key.'='.$value.'&';
 	}
-
-	// print_r($merchant_data);
-	// die;
 
 	$encrypted_data=encrypt($merchant_data,$working_key); // Method for encrypting the data.
 
