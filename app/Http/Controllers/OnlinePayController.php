@@ -21,6 +21,13 @@ public function create()
       return view('ccavRequestHandler');
 
     }
+
+    public function payreshand()
+    {
+     
+      return view('ccavResponseHandler');
+
+    }
 	
 
 

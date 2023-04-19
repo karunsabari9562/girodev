@@ -22,7 +22,7 @@
 					<td>TID	:</td><td><input type="text" name="tid" id="tid" readonly /></td>
 				</tr>
 				<tr>
-					<td>Merchant Id	:</td><td><input type="text" name="merchant_id" value=""/></td>
+					<td>Merchant Id	:</td><td><input type="text" name="merchant_id" value="2288915"/></td>
 				</tr>
 				<tr>
 					<td>Order Id	:</td><td><input type="text" name="order_id" value="123654789"/></td>
@@ -34,10 +34,10 @@
 					<td>Currency	:</td><td><input type="text" name="currency" value="INR"/></td>
 				</tr>
 				<tr>
-					<td>Redirect URL	:</td><td><input type="text" name="redirect_url" value="http://localhost/IFrame_PHP_kit/ccavResponseHandler.php"/></td>
+					<td>Redirect URL	:</td><td><input type="text" name="redirect_url" value="https://girokab.com/ccavResponseHandler"/></td>
 				</tr>
 			 	<tr>
-			 		<td>Cancel URL	:</td><td><input type="text" name="cancel_url" value="http://localhost/IFrame_PHP_kit/ccavResponseHandler.php"/></td>
+			 		<td>Cancel URL	:</td><td><input type="text" name="cancel_url" value="https://girokab.com/ccavResponseHandler"/></td>
 			 	</tr>
 			 	<tr>
 					<td>Language	:</td><td><input type="text" name="language" value="EN"/></td>
@@ -115,13 +115,11 @@
 					<td>Vault Info.	:</td><td><input type="text" name="customer_identifier" value=""/></td>
 				</tr>
 		        <tr>
-		        	<td>Integration Type	:</td><td><input type="text" name="integration_type" value="iframe_normal"/></td>
-		        </tr>
-		        <tr>
 		        	<td></td><td><INPUT TYPE="submit" value="CheckOut"></td>
 		        </tr>
 	      	</table>
 	      </form>
 	</body>
 </html>
+
 
