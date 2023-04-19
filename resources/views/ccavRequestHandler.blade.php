@@ -7,7 +7,7 @@
 <body>
 <center>
 
-@include('Cripto');
+@include('Crypto');
 
 <?php 
 
