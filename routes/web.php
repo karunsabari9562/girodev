@@ -19,8 +19,11 @@ use App\Http\Controllers\rides\FranchiseSalaryController;
 use App\Http\Controllers\rides\AdminSalaryController;
 use App\Http\Controllers\RefundController;
 use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\OnlinePayController;
 
 
+ Route::get('/online-pay', [OnlinePayController::class, 'create']);
+  Route::post('/ccavRequestHandler', [OnlinePayController::class, 'payhand']);
 
  Route::get('/', [FrontEndController::class, 'index']);
  Route::get('/about', [FrontEndController::class, 'about']);
