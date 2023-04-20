@@ -33,19 +33,19 @@ public function create()
 
     }
 
-    public function fedcreate()
-    {
+//     public function fedcreate()
+//     {
      
-      return view('meTrnReq');
+//       return view('meTrnReq');
 
-    }
+//     }
 
-public function meTrnPay()
-    {
+// public function meTrnPay()
+//     {
      
-      return view('meTrnPay');
+//       return view('meTrnPay');
 
-    }	
+//     }	
 
 
 }

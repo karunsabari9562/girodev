@@ -22,8 +22,8 @@ use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\OnlinePayController;
 
 
- Route::get('/fed-pay', [OnlinePayController::class, 'fedcreate']);
-  Route::post('/meTrnPay', [OnlinePayController::class, 'meTrnPay']);
+ //Route::get('/fed-pay', [OnlinePayController::class, 'fedcreate']);
+  //Route::post('/meTrnPay', [OnlinePayController::class, 'meTrnPay']);
  // Route::post('/ccavRequestHandler', [OnlinePayController::class, 'payhand']);
  // Route::post('/ccavResponseHandler', [OnlinePayController::class, 'payreshand']);
 
