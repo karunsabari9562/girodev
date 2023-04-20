@@ -27,7 +27,8 @@ public function create()
 
     public function payreshand(Request $req)
     {
-     	print_r($allitem);
+     	$allitem=$req->all();
+
     	// die;
       return view('ccavResponseHandler',['allitem'=>$allitem]);
 
