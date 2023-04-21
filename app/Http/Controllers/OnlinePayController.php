@@ -27,25 +27,26 @@ public function create()
 
     public function payreshand(Request $req)
     {
-     	print_r($allitem);
+     	$allitem=$req->all();
+
     	// die;
       return view('ccavResponseHandler',['allitem'=>$allitem]);
 
     }
 
-    public function fedcreate()
-    {
+//     public function fedcreate()
+//     {
      
-      return view('meTrnReq');
+//       return view('meTrnReq');
 
-    }
+//     }
 
-public function meTrnPay()
-    {
+// public function meTrnPay()
+//     {
      
-      return view('meTrnPay');
+//       return view('meTrnPay');
 
-    }	
+//     }	
 
 
 }
