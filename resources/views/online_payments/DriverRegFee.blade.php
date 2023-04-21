@@ -155,8 +155,8 @@ input:focus {
           
           <br><br>
           <button id="PayButton" class="btn btn-block yellowbtn" type="submit">
-          <!--     <span class="submit-button-lock"></span> -->
-              <INPUT TYPE="submit" value="CheckOut">
+              <span class="submit-button-lock"></span>
+              <!-- <INPUT TYPE="submit" value="CheckOut" class="btn yellowbtn w-100"> -->
           </button>
       </form>
   </div>
