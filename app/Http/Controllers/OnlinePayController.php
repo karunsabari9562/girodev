@@ -20,6 +20,16 @@ public function online_regfee()
 
     }
 
+    public function online_regfees()
+    {
+
+    	$user=1;
+		$fee=driver_reg_fee::where('id',1)->first();
+     
+      return view('online_payments.DriverRegFee',['fee'=>$fee,'uid'=>$user]);
+
+    }
+
     public function RegccavRequestHandler(Request $req)
     {
     	$allitem=$req->all();     

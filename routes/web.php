@@ -34,6 +34,7 @@ use App\Http\Controllers\OnlinePayController;
 
 Route::post('/RegccavRequestHandler', [OnlinePayController::class, 'RegccavRequestHandler']);
 Route::post('/RegccavResponseHandler', [OnlinePayController::class, 'RegccavResponseHandler']);
+Route::get('/online-regfees', [OnlinePayController::class, 'online_regfees']);
 
  Route::get('/', [FrontEndController::class, 'index']);
  Route::get('/about', [FrontEndController::class, 'about']);
