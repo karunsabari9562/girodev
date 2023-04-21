@@ -41,6 +41,9 @@ public function online_regfee()
     {
      	$allitem=$req->all();
 
+     	print_r($allitem);
+     	die;
+
       return view('online_payments.RegccavResponseHandler',['allitem'=>$allitem]);
 
     }
