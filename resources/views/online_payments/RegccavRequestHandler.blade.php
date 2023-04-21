@@ -1,5 +1,5 @@
 
-
+@include('online_payments.Crypto');
 <html>
 <head>
 <title>Registration Fee</title>
@@ -7,17 +7,13 @@
 <body>
 <center>
 
-@include('online_payments.Crypto');
+
 
 <?php 
-
-	<!-- ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL); -->
 	
 	$merchant_data='';
-	$working_key='FA227F8AA1C5CD53181057BE5D1E8025';<!-- //Shared by CCAVENUES -->
-	$access_code='AVUO48KD41AU46OUUA';<!-- //Shared by CCAVENUES -->
+	$working_key='FA227F8AA1C5CD53181057BE5D1E8025';
+	$access_code='AVUO48KD41AU46OUUA';
 	
 	foreach ($allitem as $key => $value){
 		$merchant_data.=$key.'='.$value.'&';
