@@ -9,6 +9,7 @@ use App\Http\Controllers\AdvertisementController;
 use App\Http\Controllers\ActiveDriverApiController;
 use App\Http\Controllers\rides\CustomerRideBookings;
 use App\Http\Controllers\rides\DriverRideController;
+use App\Http\Controllers\OnlinePayController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,6 +25,8 @@ use App\Http\Controllers\rides\DriverRideController;
 //     return $request->user();
 // });
 
+
+
 Route::get('/all-franchise', [DriverApiController::class, 'all_franchise']);
 
 Route::post('/driver-registration', [DriverApiController::class, 'driver_registration']);
@@ -35,11 +38,12 @@ Route::post('/driver-otp-login', [DriverApiController::class, 'driver_otp_login'
 
 
 Route::middleware(['auth:driverapi','scope:driver'])->group(function () {
+	 Route::get('/about', [FrontEndController::class, 'about']);
 
 Route::get('/driver-logout', [ActiveDriverApiController::class, 'driver_logout']);	
 
 Route::get('/all-districts/{sid}', [DriverApiController::class, 'all_districts']);
-Route::get('/all-states', [DriverApiController::class, 'all_states']);
+
 Route::get('/driver-personal-details', [DriverApiController::class, 'driver_personal_details_view']);
 Route::post('/driver-personal-details', [DriverApiController::class, 'driver_personal_details_update']);
 
@@ -136,6 +140,13 @@ Route::get('/driver-todays-earnings', [DriverRideController::class, 'driver_toda
 Route::post('/driver-datewise-rides', [DriverRideController::class, 'driver_datewise_rides']);
 
 ////////Booking end//////////////
+
+
+////////////// Online Payment Reg Fee///////////////////
+
+Route::get('/online-regfee', [OnlinePayController::class, 'online_regfee']);
+
+////////////// Online Payment End///////////////////
 
 	});
 

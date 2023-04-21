@@ -3,34 +3,35 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use DB,Auth;
+use App\Models\driver_reg_fee;
 
 
 class OnlinePayController extends Controller
 {
 
-public function payment_request($uid,$bid)
+public function online_regfee()
     {
+
+    	$user=Auth::guard('driverapi')->user()->id;
+		$fee=driver_reg_fee::where('id',1)->first();
      
-      return view('payment_page');
+      return view('online_payments.DriverRegFee',['fee'=>$fee,'uid'=>$user]);
 
     }
 
-    public function payhand(Request $req)
+    public function RegccavRequestHandler(Request $req)
     {
-    	$allitem=$req->all();
-
-
-     
-      return view('ccavRequestHandler',['allitem'=>$allitem]);
+    	$allitem=$req->all();     
+      	return view('online_payments.RegccavRequestHandler',['allitem'=>$allitem]);
 
     }
 
-    public function payreshand(Request $req)
+    public function RegccavResponseHandler(Request $req)
     {
      	$allitem=$req->all();
 
-    	// die;
-      return view('ccavResponseHandler',['allitem'=>$allitem]);
+      return view('online_payments.RegccavResponseHandler',['allitem'=>$allitem]);
 
     }
 

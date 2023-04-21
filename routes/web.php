@@ -27,9 +27,13 @@ use App\Http\Controllers\OnlinePayController;
  // Route::post('/ccavRequestHandler', [OnlinePayController::class, 'payhand']);
  // Route::post('/ccavResponseHandler', [OnlinePayController::class, 'payreshand']);
 
- Route::get('/online-fare-payment/{uid}/{bid}', [OnlinePayController::class, 'payment_request']);
-  Route::post('/ccavRequestHandler', [OnlinePayController::class, 'payhand']);
-  Route::post('/ccavResponseHandler', [OnlinePayController::class, 'payreshand']);
+ // Route::get('/online-fare-payment/{uid}/{bid}', [OnlinePayController::class, 'payment_request']);
+ //  Route::post('/ccavRequestHandler', [OnlinePayController::class, 'payhand']);
+ //  Route::post('/ccavResponseHandler', [OnlinePayController::class, 'payreshand']);
+
+
+Route::post('/RegccavRequestHandler', [OnlinePayController::class, 'RegccavRequestHandler']);
+Route::post('/RegccavResponseHandler', [OnlinePayController::class, 'RegccavResponseHandler']);
 
  Route::get('/', [FrontEndController::class, 'index']);
  Route::get('/about', [FrontEndController::class, 'about']);
