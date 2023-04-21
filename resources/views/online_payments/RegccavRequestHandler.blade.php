@@ -1,5 +1,5 @@
 
-@include('online_payments.Crypto');
+@include('online_payments.Crypto')
 <html>
 <head>
 <title>Registration Fee</title>
@@ -31,7 +31,7 @@ echo "<input type=hidden name=access_code value=$access_code>";
 ?>
 </form>
 </center>
-<!-- <script language='javascript'>document.redirect.submit();</script> -->
+<script language='javascript'>document.redirect.submit();</script>
 </body>
 </html>
 
