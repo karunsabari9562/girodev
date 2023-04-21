@@ -73,7 +73,7 @@ public function online_farepayment($bid)
 
     	
 
-		$bookdt=rides_booking::where('id',549)first();
+		$bookdt=rides_booking::where('id',549)->first();
 		if($bookdt)
        {
        	return view('online_payments.OnlineFare',['bookdt'=>$bookdt]);
