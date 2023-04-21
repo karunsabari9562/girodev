@@ -36,6 +36,9 @@ Route::post('/RegccavRequestHandler', [OnlinePayController::class, 'RegccavReque
 Route::post('/RegccavResponseHandler', [OnlinePayController::class, 'RegccavResponseHandler']);
 Route::get('/online-regfees', [OnlinePayController::class, 'online_regfees']);
 
+Route::post('/FareccavRequestHandler', [OnlinePayController::class, 'FareccavRequestHandler']);
+Route::get('/online-farepayments', [OnlinePayController::class, 'online_farepayments']);
+
  Route::get('/', [FrontEndController::class, 'index']);
  Route::get('/about', [FrontEndController::class, 'about']);
  Route::get('/services', [FrontEndController::class, 'services']);

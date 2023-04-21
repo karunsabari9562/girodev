@@ -205,6 +205,12 @@ Route::get('/customer-completed-rides', [CustomerRideBookings::class, 'customer_
 
 ////////Booking end//////////////
 
+////////////// Online Fare Payment ///////////////////
+
+Route::get('/online-farepayment/{bid}', [OnlinePayController::class, 'online_farepayment']);
+
+////////////// Online Fare Payment ///////////////////
+
 
 
 	});

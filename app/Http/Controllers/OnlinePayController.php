@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use DB,Auth;
 use App\Models\driver_reg_fee;
+use App\Models\rides_booking;
 
 
 class OnlinePayController extends Controller
@@ -41,26 +42,53 @@ public function online_regfee()
     {
      	$allitem=$req->all();
 
-     	print_r($allitem);
-     	die;
+     	// print_r($allitem);
+     	// die;
 
       return view('online_payments.RegccavResponseHandler',['allitem'=>$allitem]);
 
     }
 
-//     public function fedcreate()
-//     {
+/////////////////////////////
+
+
+public function online_farepayment($bid)
+    {
+
+    	$user=Auth::guard('customerapi')->user()->id;
+
+		$bookdt=rides_booking::where('id',$bid)->where('customer_id',$user)->first();
+		if($bookdt)
+       {
+       	return view('online_payments.OnlineFare',['bookdt'=>$bookdt]);
+       }
      
-//       return view('meTrnReq');
+      
 
-//     }
+    }
 
-// public function meTrnPay()
-//     {
+
+    public function online_farepayments()
+    {
+
+    	
+
+		$bookdt=rides_booking::where('id',549)first();
+		if($bookdt)
+       {
+       	return view('online_payments.OnlineFare',['bookdt'=>$bookdt]);
+       }
      
-//       return view('meTrnPay');
+      
 
-//     }	
+    }
+
+     public function FareccavRequestHandler(Request $req)
+    {
+    	$allitem=$req->all();     
+      	return view('online_payments.FareccavRequestHandler',['allitem'=>$allitem]);
+
+    }	
 
 
 }

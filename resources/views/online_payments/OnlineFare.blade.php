@@ -121,13 +121,13 @@ input:focus {
   <div id="Checkout" class="inline">
       <h1><img src="{{ asset('admin/img/logo/logo2.png')}}" alt="logo" style="width: 50%;"></h1>
       
-      <form method="post" name="customerData" action="/RegccavRequestHandler">
+      <form method="post" name="customerData" action="/FareccavRequestHandler">
     @csrf
       	<br>
-        <input type="hidden" name="tid" id="tid" readonly value="{{$uid}}" />
+        <input type="hidden" name="tid" id="tid" readonly value="{{$bookdt->id}}" />
         <input type="hidden" name="merchant_id" value="2288915"/>
-        <input type="hidden" name="order_id" value="{{$uid}}"/>
-        <input type="hidden" name="amount" value="{{$fee->fee}}" />
+        <input type="hidden" name="order_id" value="{{$bookdt->id}}"/>
+        <input type="hidden" name="amount" value="{{$bookdt->total_fare}}" />
         <input type="hidden" name="currency" value="INR"/>
         <input type="hidden" name="redirect_url" value="https://girokab.com/RegccavResponseHandler"/>
         <input type="hidden" name="cancel_url" value="https://girokab.com/RegccavResponseHandler"/>
@@ -142,7 +142,7 @@ input:focus {
               <label for="PaymentAmount">Registration Fee</label>
               <div class="amount-placeholder">
                   <span>Rs.</span>
-                  <span>{{$fee->fee}}</span>
+                  <span>{{$bookdt->total_fare}}</span>
               </div>
           </div>
           <!-- <div class="form-group">
