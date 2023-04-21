@@ -8,10 +8,10 @@ use GuzzleHttp\Client;
 class OnlinePayController extends Controller
 {
 
-public function create()
+public function payment_request($uid,$bid)
     {
      
-      return view('pay');
+      return view('payment_page');
 
     }
 
