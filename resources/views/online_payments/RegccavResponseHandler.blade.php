@@ -18,6 +18,7 @@
 		if($i==3)	$order_status=$information[1];
 		if($i==0)	$bid=$information[1];
 		if($i==2)	$rid=$information[1];
+		if($i==26)	$ptype=$information[1];
 		if($i==10)	$amt=$information[1];
 	}
 
@@ -61,14 +62,14 @@
 
 	if(resstat=='Success')
 	{
-		vat ptp='{{$ptype}}';
+		var ptp='{{$ptype}}';
 		if(ptp==1)
 		{
 
 			data = new FormData();
   	  data.append('driverid', '{{$bid}}');
+  	  data.append('amount', '{{$amt}}');
       data.append('referenceid', '{{$rid}}');
-      data.append('amount', '{{$amt}}');
       data.append('_token', "{{ csrf_token() }}");
     
       $.ajax({
