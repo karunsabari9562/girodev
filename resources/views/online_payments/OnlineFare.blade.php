@@ -125,7 +125,7 @@ input:focus {
     @csrf
       	<br>
         <input type="hidden" name="tid" id="tid" readonly value="{{$bookdt->id}}" />
-        <input type="hidden" name="pay_type" id="pay_type" readonly value="2" />
+        <input type="hidden" name="merchant_param1" id="merchant_param1" readonly value="2" />
         <input type="hidden" name="merchant_id" value="2288915"/>
         <input type="hidden" name="order_id" value="{{$bookdt->id}}"/>
         <input type="hidden" name="amount" value="{{$bookdt->total_fare}}" />
