@@ -16,6 +16,7 @@
 	{
 		$information=explode('=',$decryptValues[$i]);
 		if($i==3)	$order_status=$information[1];
+		if($i==0)	$bid=$information[1];
 	}
 
 	if($order_status==="Success")
@@ -54,7 +55,7 @@
 
 <script type="text/javascript">
 	
-	var paystat='{{$order_status}}';
+	var paystat='{{$bid}}';
 
 	alert(paystat);
 
