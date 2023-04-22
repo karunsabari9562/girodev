@@ -17,6 +17,7 @@
 		$information=explode('=',$decryptValues[$i]);
 		if($i==3)	$order_status=$information[1];
 		if($i==0)	$bid=$information[1];
+		if($i==2)	$rid=$information[1];
 	}
 
 	if($order_status==="Success")
@@ -54,10 +55,59 @@
 ?>
 
 <script type="text/javascript">
-	
-	var paystat='{{$bid}}';
 
-	alert(paystat);
+	var resstat='{{$order_status}}';
+
+	if(resstat=='Success')
+	{
+		
+      data = new FormData();
+  	  data.append('bookingid', '{{$bid}}');
+      data.append('referenceid', '{{$rid}}');
+      data.append('_token', "{{ csrf_token() }}");
+    
+      $.ajax({
+    
+        type:"POST",
+        url:"/pay-ridefee",
+         data: data,
+        dataType:"json",
+        contentType: false,
+//cache: false,
+		processData: false,
+       
+        success:function(data)
+        {
+          if(data['success'])
+          {
+              // $('#submitButton1').hide();
+              // $('#submitButton').show();
+              //  swal({
+              //          title: "Vehicle category added successfully",
+              //          closeOnClickOutside: false,
+              //          icon: "success",
+              //         buttons: "Ok",
+              //       })
+    
+              //        .then((willDelete) => {
+              //         if (willDelete) {
+              //          window.location.href=window.location.href;
+              //                  } 
+    
+              //       });
+          }
+
+        }
+    
+    
+    
+    
+      })
+    
+	}
+	
+
+
 
 
 </script>

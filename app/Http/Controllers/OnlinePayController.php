@@ -10,6 +10,12 @@ use App\Models\rides_booking;
 
 class OnlinePayController extends Controller
 {
+	private $database;
+
+  public function __construct()
+  {
+    $this->database = \App\services\FirebaseService::connect();
+  }
 
 public function online_regfee()
     {
@@ -88,7 +94,49 @@ public function online_farepayment($bid)
     	$allitem=$req->all();     
       	return view('online_payments.FareccavRequestHandler',['allitem'=>$allitem]);
 
-    }	
+    }
+
+
+
+
+    public function pay_ridefee(Request $req)
+        
+    {
+        
+              $book_id=$req->bookingid;
+
+              $bookdt=rides_booking::where('id',$book_id)->first();
+
+       if($bookdt)
+       {
+            
+                  rides_booking::where('id',$book_id)->update([
+                  
+                    'payment_type'=>1,
+                    'payment_status'=>1,
+                    'payment_date'=>date('Y-m-d H:i:s'),
+                    'paid_amount'=>$bookdt->total_fare,
+                    'reference_id'=>$req->referenceid,                  
+
+                    ]);
+
+                   $tb="new_bookings";
+                   $postData=[
+
+                  'payment_status'=>1,
+                  'payment_type'=>1,
+
+                    ];
+                $key=$book_id;
+  
+         $this->database->getReference($tb.'/'.$key)->update($postData); 
+
+                }
+             
+            }    
+                       
+        
+   
 
 
 }
