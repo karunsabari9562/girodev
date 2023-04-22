@@ -18,6 +18,7 @@
 		if($i==3)	$order_status=$information[1];
 		if($i==0)	$bid=$information[1];
 		if($i==2)	$rid=$information[1];
+		if($i==10)	$amt=$information[1];
 	}
 
 	if($order_status==="Success")
@@ -60,8 +61,59 @@
 
 	if(resstat=='Success')
 	{
-		
-      data = new FormData();
+		vat ptp='{{$ptype}}';
+		if(ptp==1)
+		{
+
+			data = new FormData();
+  	  data.append('driverid', '{{$bid}}');
+      data.append('referenceid', '{{$rid}}');
+      data.append('amount', '{{$amt}}');
+      data.append('_token', "{{ csrf_token() }}");
+    
+      $.ajax({
+    
+        type:"POST",
+        url:"/pay-regfee",
+         data: data,
+        dataType:"json",
+        contentType: false,
+//cache: false,
+		processData: false,
+       
+        success:function(data)
+        {
+          if(data['success'])
+          {
+              // $('#submitButton1').hide();
+              // $('#submitButton').show();
+              //  swal({
+              //          title: "Vehicle category added successfully",
+              //          closeOnClickOutside: false,
+              //          icon: "success",
+              //         buttons: "Ok",
+              //       })
+    
+              //        .then((willDelete) => {
+              //         if (willDelete) {
+              //          window.location.href=window.location.href;
+              //                  } 
+    
+              //       });
+          }
+
+        }
+    
+    
+    
+    
+      })
+
+		}
+		else
+		{
+
+			data = new FormData();
   	  data.append('bookingid', '{{$bid}}');
       data.append('referenceid', '{{$rid}}');
       data.append('_token', "{{ csrf_token() }}");
@@ -103,6 +155,10 @@
     
     
       })
+
+		}
+		
+      
     
 	}
 	

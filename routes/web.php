@@ -38,6 +38,8 @@ Route::get('/online-regfees', [OnlinePayController::class, 'online_regfees']);
 
 Route::post('/FareccavRequestHandler', [OnlinePayController::class, 'FareccavRequestHandler']);
 Route::get('/online-farepayments', [OnlinePayController::class, 'online_farepayments']);
+Route::post('/pay-ridefee', [OnlinePayController::class, 'pay_ridefee']);
+Route::post('/pay-regfee', [OnlinePayController::class, 'pay_regfee']);
 
  Route::get('/', [FrontEndController::class, 'index']);
  Route::get('/about', [FrontEndController::class, 'about']);

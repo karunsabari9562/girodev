@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use DB,Auth;
 use App\Models\driver_reg_fee;
 use App\Models\rides_booking;
+use App\Models\driver_secondary_document;
 
 
 class OnlinePayController extends Controller
@@ -54,6 +55,27 @@ public function online_regfee()
       return view('online_payments.RegccavResponseHandler',['allitem'=>$allitem]);
 
     }
+
+
+
+
+    public function pay_regfee(Request $req)
+		
+	{
+		
+
+				$user=$req->driverid;
+
+
+				driver_secondary_document::where('driver_id',$user)->update([
+				'payment_status'=>1,
+				'payment_date'=>date('Y-m-d'),	
+				'amount'=>$req->amount,	
+				'reference_id'=>$req->referenceid,	
+				]);
+		
+		
+	}
 
 /////////////////////////////
 
