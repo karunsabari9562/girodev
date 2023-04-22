@@ -63,7 +63,7 @@
 	if(resstat=='Success')
 	{
 		var ptp='{{$ptype}}';
-		alert(ptp);
+		//alert(ptp);
 		if(ptp==1)
 		{
 
