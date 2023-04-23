@@ -66,18 +66,17 @@
 	var a3='{{$amt}}';
 	var a4='{{$ptype}}';
 
-	alert(resstat);
-	alert(a1);
-	alert(a2);
-	alert(a3);
-	alert(a4);
+	// alert(resstat);
+	// alert(a1);
+	// alert(a2);
+	// alert(a3);
+	// alert(a4);
 
 
 	if(resstat=='Success')
 	{
-		var ptp='{{$ptype}}';
-		//alert(ptp);
-		if(ptp==1)
+		
+		if(a4==1)
 		{
 
 			data = new FormData();
