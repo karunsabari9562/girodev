@@ -58,7 +58,7 @@
 
 <script type="text/javascript">
 
-	var ptp='{{$information[1]}}';
+	var ptp='{{$amt}}';
 	alert(ptp);
 	return false;
 
