@@ -58,7 +58,7 @@
 
 <script type="text/javascript">
 
-	var ptp='{{$decryptValues}}';
+	var ptp='{{$ptype}}';
 	alert(ptp);
 	return false;
 
