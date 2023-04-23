@@ -15,11 +15,13 @@
 	for($i = 0; $i < $dataSize; $i++) 
 	{
 		$information=explode('=',$decryptValues[$i]);
-		if($i==3)	$order_status=$information[1];
-		if($i==0)	$bid=$information[1];
+		
+        if($i==0)	$bid=$information[1];
 		if($i==2)	$rid=$information[1];
-		if($i==26)	$ptype=$information[1];
+		if($i==3)	$order_status=$information[1];
 		if($i==10)	$amt=$information[1];
+		if($i==26)	$ptype=$information[1];
+		
 	}
 
 	if($order_status==="Success")
@@ -58,11 +60,21 @@
 
 <script type="text/javascript">
 
-	var ptp='{{$amt}}';
-	alert(ptp);
-	return false;
+	
+	
 
 	var resstat='{{$order_status}}';
+	var a1='{{$bid}}';
+	var a2='{{$rid}}';
+	var a3='{{$amt}}';
+	var a4='{{$ptype}}';
+
+	alert(resstat);
+	alert(a1);
+	alert(a2);
+	alert(a3);
+	alert(a4);
+	return false;
 
 	if(resstat=='Success')
 	{
