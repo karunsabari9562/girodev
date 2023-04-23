@@ -58,6 +58,10 @@
 
 <script type="text/javascript">
 
+	var ptp='{{$decryptValues}}';
+	alert(ptp);
+	return false;
+
 	var resstat='{{$order_status}}';
 
 	if(resstat=='Success')
