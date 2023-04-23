@@ -60,20 +60,17 @@
 
 <script type="text/javascript">
 
-	
-	
-
 	var resstat='{{$order_status}}';
-	var a1='{{$bid}}';
-	var a2='{{$rid}}';
-	var a3='{{$amt}}';
-	var a4='{{$ptype}}';
+	// var a1='{{$bid}}';
+	// var a2='{{$rid}}';
+	// var a3='{{$amt}}';
+	// var a4='{{$ptype}}';
 
 	alert(resstat);
-	alert(a1);
-	alert(a2);
-	alert(a3);
-	alert(a4);
+	// alert(a1);
+	// alert(a2);
+	// alert(a3);
+	// alert(a4);
 	return false;
 
 	if(resstat=='Success')
