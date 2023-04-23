@@ -127,6 +127,9 @@ public function online_farepayment($bid)
         
               $book_id=$req->bookingid;
 
+              print_r($book_id);
+              die;
+
               $bookdt=rides_booking::where('id',$book_id)->first();
 
        if($bookdt)
