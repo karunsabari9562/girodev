@@ -57,7 +57,7 @@
 	echo "</table><br>";
 	echo "</center>";
 ?>
-
+<script src="{{ asset('admin/plugins/jquery/jquery.min.js')}}"></script>
 <script type="text/javascript">
 
 	var resstat='{{$order_status}}';
