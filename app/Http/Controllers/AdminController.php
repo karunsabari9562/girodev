@@ -256,12 +256,15 @@ class AdminController extends Controller
     
        $regfee=driver_reg_fee::where('id',1)->first();
        $renewfee=driver_reg_fee::where('id',2)->first();
-       $drper=driver_reg_fee::where('id',3)->first();
-       $tax=driver_reg_fee::where('id',4)->first();
-       $nightride=driver_reg_fee::where('id',5)->first();
-       $frper=driver_reg_fee::where('id',6)->first();
+       // $drper=driver_reg_fee::where('id',3)->first();
+       // $tax=driver_reg_fee::where('id',4)->first();
+       // $nightride=driver_reg_fee::where('id',5)->first();
+       // $frper=driver_reg_fee::where('id',6)->first();
+
+       print_r($regfee->fee);
+       die;
        
-        return view('admin.FeeDetails',['regfee'=>$regfee,'renewfee'=>$renewfee,'drper'=>$drper,'tax'=>$tax,'nightride'=>$nightride,'frper'=>$frper]);   
+        return view('admin.FeeDetails',['regfee'=>$regfee,'renewfee'=>$renewfee]);   
        
     }
 
