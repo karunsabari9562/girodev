@@ -1,5 +1,27 @@
 
-@include('online_payments.Crypto');
+@include('online_payments.Crypto')
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
+    <meta name="csrf-token" content="fXN8PUjloPiPwalcvzMnZbLum4g4cdb8f3ZygYEC">
+
+    <title>GiroKab</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('payments/assets/css/main.css')}}">
+
+
+
+</head>
+
+<body>
 <?php
 
 	//error_reporting(1);
@@ -24,24 +46,97 @@
 		
 	}
 
+
+
 	if($order_status==="Success")
 	{
-		echo "<br>Thank you for shopping with us. Your credit card has been charged and your transaction is successful. We will be shipping your order to you soon.";
+		// echo "<br>Thank you for shopping with us. Your credit card has been charged and your transaction is successful. We will be shipping your order to you soon.";
+
+		echo '<div class="bodyContent">
+        <div class="text-center successful-wrap h-100">
+            <div class="successful-info">
+                <div class="successful-icon mb-4">
+                    <img src="assets/images/check.svg" alt="">
+                   
+                </div>
+                <div class="successful-text">
+                    <span>Payment Successful</span>
+                </div>
+                <div class="successful-btn">
+                    <span>Done</span>
+                </div>
+            </div>
+
+        </div>
+    </div>';
 
 		
 	}
 	else if($order_status==="Aborted")
 	{
-		echo "<br>Thank you for shopping with us.We will keep you posted regarding the status of your order through e-mail";
+		// echo "<br>Thank you for shopping with us.We will keep you posted regarding the status of your order through e-mail";
+
+		echo '<div class="bodyContent">
+        <div class="text-center successful-wrap h-100">
+            <div class="successful-info">
+                <div class="successful-icon mb-4">
+               
+                  <img src="assets/images/close.svg" alt="">
+                </div>
+                <div class="successful-text">
+                    <span>Payment Unsuccessful</span>
+                </div>
+                <div class="successful-btn">
+                    <span>Done</span>
+                </div>
+            </div>
+
+        </div>
+    </div>';
 	
 	}
 	else if($order_status==="Failure")
 	{
-		echo "<br>Thank you for shopping with us.However,the transaction has been declined.";
+		// echo "<br>Thank you for shopping with us.However,the transaction has been declined.";
+		echo '<div class="bodyContent">
+        <div class="text-center successful-wrap h-100">
+            <div class="successful-info">
+                <div class="successful-icon mb-4">
+                    
+                    <img src="assets/images/close.svg" alt="">
+                </div>
+                <div class="successful-text">
+                    <span>Payment Faild</span>
+                </div>
+                <div class="successful-btn">
+                    <span>Done</span>
+                </div>
+            </div>
+
+        </div>
+    </div>';
 	}
 	else
 	{
-		echo "<br>Security Error. Illegal access detected";
+		// echo "<br>Security Error. Illegal access detected";
+
+		echo '<div class="bodyContent">
+        <div class="text-center successful-wrap h-100">
+            <div class="successful-info">
+                <div class="successful-icon mb-4">
+                    
+                    <img src="assets/images/close.svg" alt="">
+                </div>
+                <div class="successful-text">
+                    <span>Security Error. Illegal access detected</span>
+                </div>
+                <div class="successful-btn">
+                    <span>Done</span>
+                </div>
+            </div>
+
+        </div>
+    </div>';
 	
 	}
 
@@ -58,6 +153,12 @@
 	echo "</center>";
 ?>
 <script src="{{ asset('admin/plugins/jquery/jquery.min.js')}}"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
 <script type="text/javascript">
 
 	var resstat='{{$order_status}}';

@@ -1,0 +1,117 @@
+.bodyContent {
+  background-color: #fbcb54;
+  width: 100%;
+  height: calc(100vh - 0px);
+}
+
+.bodyContent .contBox {
+  padding: 1rem;
+  position: relative;
+}
+.bodyContent .contBox:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 300px;
+  background: rgb(241,240,224);
+    background: linear-gradient(329deg, rgba(241,240,224,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+.textBlock {
+  background-color: #fff;
+  margin-top: 2rem;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgb(0 0 0 / 16%);
+}
+
+.textBlock button {
+  background-color: #fab60b;
+  color: #000000;
+  border-color: #fab60b;
+  font-weight: 500;
+  display: block;
+  width: 100%;
+}
+.textBlock-fee{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.textBlock-fee-a{
+  font-size: 18px;
+  font-weight: 600;
+}
+.textBlock-fee-b{
+  background: rgb(251 203 84 / 59%);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.contBox-logo{
+  margin: 3rem 0 2.5rem;
+}
+
+.successful-wrap{
+}
+.successful-info{
+  padding: 10rem 0 0;
+}
+.successful-icon{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0px 7px rgb(255 255 255 / 31%);
+}
+.successful-icon img{
+  width: 50px;
+}
+.successful-text{
+  font-size: 20px;
+  font-weight: 500;
+}
+.successful-btn{
+  background: #e3a610;
+  color: #fff;
+  padding: 4px 24px 6px;
+  display: inline-block;
+  font-weight: 500;
+  border-radius: 24px;
+  margin-top: 7rem;
+}
+
+.message-box ul{
+  margin: 0;
+  padding: 0;
+}
+.message-box ul li{
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #efefef;
+  padding: 0 0 9px;
+  margin: 0 0 9px;
+}
+.message-box ul li span{
+  width: 50%;
+  flex: 0 0 auto;
+  /* border: 1px solid red; */
+}
+
+.message-bg-box{
+  background: #f5f5ef;
+  padding: 10px;
+  border-radius: 4px;
+}
+.message-bg-box p{
+  margin-bottom: 0 !important;
+}
