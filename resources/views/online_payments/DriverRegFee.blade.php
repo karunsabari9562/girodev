@@ -36,6 +36,7 @@
         <input type="hidden" name="currency" value="INR"/>
         <input type="hidden" name="redirect_url" value="https://girokab.com/RegccavResponseHandler"/>
         <input type="hidden" name="cancel_url" value="https://girokab.com/RegccavResponseHandler"/>
+        <input type="hidden" name="billing_country" value="India"/>
             <div class="textBlock position-relative">
                 <div class="mb-4 textBlock-fee">
                     <span class="textBlock-fee-a">Registration Fee</span>
