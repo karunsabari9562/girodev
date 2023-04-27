@@ -43,11 +43,9 @@
                 </div>
                 <div class="mb-4">
                   <input type="hidden" name="billing_tel" value="9562218794"/>
-                  @if($mail_chk->email=='')
+                  
           <input type="email" class="form-control" id="billing_email" name="billing_email" placeholder="Enter your Email...." value="karunsabari@gmail.com">
-          @else
-             <input type="email" class="form-control" id="billing_email" name="billing_email" placeholder="Enter your Email...." value="karunsabari@gmail.com">
-          @endif
+          
                  
                 </div>
                 <div>
