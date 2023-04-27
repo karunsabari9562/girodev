@@ -7,6 +7,8 @@ use DB,Auth;
 use App\Models\driver_reg_fee;
 use App\Models\rides_booking;
 use App\Models\driver_secondary_document;
+use App\Models\driver_registration;
+use App\Models\customer_registration;
 
 
 class OnlinePayController extends Controller
@@ -23,8 +25,10 @@ public function online_regfee()
 
     	$user=Auth::guard('driverapi')->user()->id;
 		$fee=driver_reg_fee::where('id',1)->first();
+
+		$mail_chk=driver_registration::select('mobile','email')->where('id',$user)->first();
      
-      return view('online_payments.DriverRegFee',['fee'=>$fee,'uid'=>$user]);
+      return view('online_payments.DriverRegFee',['fee'=>$fee,'uid'=>$user,'mail_chk'=>$mail_chk]);
 
     }
 
@@ -33,14 +37,21 @@ public function online_regfee()
 
     	$user=1;
 		$fee=driver_reg_fee::where('id',1)->first();
-     
-      return view('online_payments.DriverRegFee',['fee'=>$fee,'uid'=>$user]);
+     $mail_chk=driver_registration::select('mobile','email')->where('id',1)->first();
+      return view('online_payments.DriverRegFee',['fee'=>$fee,'uid'=>$user,'mail_chk'=>$mail_chk]);
 
     }
 
     public function RegccavRequestHandler(Request $req)
     {
-    	$allitem=$req->all();     
+
+    	$allitem=$req->all();
+
+    	driver_registration::where('id',$req->order_id)->update([
+
+    		'email'=>$req->billing_email
+
+    	]);     
       	return view('online_payments.RegccavRequestHandler',['allitem'=>$allitem]);
 
     }
@@ -88,7 +99,8 @@ public function online_farepayment($bid)
 		$bookdt=rides_booking::where('id',$bid)->where('customer_id',$user)->first();
 		if($bookdt)
        {
-       	return view('online_payments.OnlineFare',['bookdt'=>$bookdt]);
+       	 $mail_chk=customer_registration::select('mobile','email')->where('id',$bookdt->customer_id)->first();
+       	return view('online_payments.OnlineFare',['bookdt'=>$bookdt,'mail_chk'=>$mail_chk]);
        }
      
       
@@ -101,10 +113,11 @@ public function online_farepayment($bid)
 
     	
 
-		$bookdt=rides_booking::where('id',549)->first();
+		$bookdt=rides_booking::where('id',1)->first();
 		if($bookdt)
        {
-       	return view('online_payments.OnlineFare',['bookdt'=>$bookdt]);
+       	$mail_chk=customer_registration::select('mobile','email')->where('id',2)->first();
+       	return view('online_payments.OnlineFare',['bookdt'=>$bookdt,'mail_chk'=>$mail_chk]);
        }
      
       
@@ -113,7 +126,13 @@ public function online_farepayment($bid)
 
      public function FareccavRequestHandler(Request $req)
     {
-    	$allitem=$req->all();     
+    	$allitem=$req->all();    
+
+    	customer_registration::where('mobile',$req->billing_tel)->update([
+
+    		'email'=>$req->billing_email
+
+    	]);  
       	return view('online_payments.FareccavRequestHandler',['allitem'=>$allitem]);
 
     }

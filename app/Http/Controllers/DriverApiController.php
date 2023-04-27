@@ -131,6 +131,7 @@ class DriverApiController extends Controller
 						'otp_expiry'=>$formatDate,
 						'profile_submission'=>0,
 						'admin_approval_status'=>0,
+						'email'=>'',
 						
 
 						]);

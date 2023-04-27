@@ -50,7 +50,8 @@ class CustomerRegApiController extends Controller
 						'name'=>$req->name,
 						'mobile'=>$req->mobile,
 						'login_otp'=>$otp,
-						'otp_expiry'=>$formatDate
+						'otp_expiry'=>$formatDate,
+						'email'=>'',
 						
 						]);
 
