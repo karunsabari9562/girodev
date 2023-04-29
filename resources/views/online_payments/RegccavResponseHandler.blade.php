@@ -104,7 +104,7 @@
             <div class="successful-info">
                 <div class="successful-icon mb-4">
                     
-                  <img src="https://girokab.com/payments/assets/images/close.svg alt="">
+                  <img src="https://girokab.com/payments/assets/images/close.svg" alt="">
                 </div>
                 <div class="successful-text">
                     <span>Payment Faild</span>
