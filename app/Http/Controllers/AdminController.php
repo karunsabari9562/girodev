@@ -261,8 +261,6 @@ class AdminController extends Controller
        // $nightride=driver_reg_fee::where('id',5)->first();
        // $frper=driver_reg_fee::where('id',6)->first();
 
-       print_r($regfee->fee);
-       die;
        
         return view('admin.FeeDetails',['regfee'=>$regfee,'renewfee'=>$renewfee]);   
        
