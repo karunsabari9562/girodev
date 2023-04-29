@@ -43,10 +43,13 @@
                     <span class="textBlock-fee-b">Rs. {{$fee->fee}}</span>
                 </div>
                 <div class="mb-4">
-                  <input type="hidden" name="billing_tel" value="9562218794"/>
+                  <input type="hidden" name="billing_tel" value="{{$mail_chk->mobile}}"/>
+        @if($mail_chk->email=='')           
                   
-          <input type="email" class="form-control" id="billing_email" name="billing_email" placeholder="Enter your Email...." value="karunsabari@gmail.com">
-          
+          <input type="email" class="form-control" id="billing_email" name="billing_email" placeholder="Enter your Email...." required="">
+          @else
+          <input type="hidden" class="form-control" id="billing_email" name="billing_email" placeholder="Enter your Email...." value="{{$mail_chk->email}}" required="">
+          @endif
                  
                 </div>
                 <div>

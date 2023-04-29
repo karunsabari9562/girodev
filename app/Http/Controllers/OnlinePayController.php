@@ -38,7 +38,7 @@ public function online_regfee()
     	$user=1;
 		$fee=driver_reg_fee::where('id',1)->first();
      $mail_chk=['mobile'=>'9562218794','email'=>'karunsabari@gmail.com'];
-      return view('online_payments.DriverRegFee',['fee'=>$fee,'uid'=>$user,'mail_chk'=>$mail_chk]);
+      return view('online_payments.DriverRegFees',['fee'=>$fee,'uid'=>$user,'mail_chk'=>$mail_chk]);
 
     }
 
