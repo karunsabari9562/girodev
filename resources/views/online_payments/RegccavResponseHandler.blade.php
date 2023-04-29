@@ -141,17 +141,17 @@
 	
 	}
 
-	echo "<br><br>";
+	// echo "<br><br>";
 
-	echo "<table cellspacing=4 cellpadding=4>";
-	for($i = 0; $i < $dataSize; $i++) 
-	{
-		$information=explode('=',$decryptValues[$i]);
-	    	echo '<tr><td>'.$information[0].'</td><td>'.$information[1].'</td></tr>';
-	}
+	// echo "<table cellspacing=4 cellpadding=4>";
+	// for($i = 0; $i < $dataSize; $i++) 
+	// {
+	// 	$information=explode('=',$decryptValues[$i]);
+	//     	echo '<tr><td>'.$information[0].'</td><td>'.$information[1].'</td></tr>';
+	// }
 
-	echo "</table><br>";
-	echo "</center>";
+	// echo "</table><br>";
+	// echo "</center>";
 ?>
 <script src="{{ asset('admin/plugins/jquery/jquery.min.js')}}"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
