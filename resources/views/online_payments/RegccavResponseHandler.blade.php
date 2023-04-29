@@ -56,7 +56,7 @@
         <div class="text-center successful-wrap h-100">
             <div class="successful-info">
                 <div class="successful-icon mb-4">
-                    <img src="{{asset("payments/assets/images/check.svg"}}" alt="">
+                    <img src="https://girokab.com/payments/assets/images/check.svg" alt="">
                    
                 </div>
                 <div class="successful-text">
@@ -82,7 +82,7 @@
                 <div class="successful-icon mb-4">
                
                 
-                  <img src="{{asset("payments/assets/images/close.svg"}}" alt="">
+                  <img src="https://girokab.com/payments/assets/images/close.svg" alt="">
                 </div>
                 <div class="successful-text">
                     <span>Payment Unsuccessful</span>
@@ -104,7 +104,7 @@
             <div class="successful-info">
                 <div class="successful-icon mb-4">
                     
-                  <img src="{{asset("payments/assets/images/close.svg"}}" alt="">
+                  <img src="https://girokab.com/payments/assets/images/close.svg alt="">
                 </div>
                 <div class="successful-text">
                     <span>Payment Faild</span>
@@ -126,7 +126,7 @@
             <div class="successful-info">
                 <div class="successful-icon mb-4">
                     
-                <img src="{{asset("payments/assets/images/close.svg"}}" alt="">
+                <img src="https://girokab.com/payments/assets/images/close.svg" alt="">
                 </div>
                 <div class="successful-text">
                     <span>Security Error. Illegal access detected</span>
