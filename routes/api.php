@@ -42,6 +42,7 @@ Route::middleware(['auth:driverapi','scope:driver'])->group(function () {
 
 Route::get('/driver-logout', [ActiveDriverApiController::class, 'driver_logout']);	
 
+Route::get('/all-states', [DriverApiController::class, 'all_states']);
 Route::get('/all-districts/{sid}', [DriverApiController::class, 'all_districts']);
 
 Route::get('/driver-personal-details', [DriverApiController::class, 'driver_personal_details_view']);
