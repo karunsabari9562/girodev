@@ -161,7 +161,8 @@ class CustomerRideBookings extends Controller
               if($tm>$v_det->timefrom && $tm<$v_det->timeto)
               {
                 $ride_fare=round($fares*$v_det->sp_charge,$decimals);
-                $tax_amount=round(($ride_fare+$v_det->service_charge)*$v_det->ride_tax/100,$decimals);
+                //$tax_amount=round(($ride_fare+$v_det->service_charge)*$v_det->ride_tax/100,$decimals);
+                $tax_amount=round($v_det->service_charge*$v_det->ride_tax/100,$decimals);
                 $total_fare=$ride_fare+$tax_amount+$v_det->service_charge;
                 $extra_charge_status=1;
 
@@ -169,7 +170,8 @@ class CustomerRideBookings extends Controller
               else
               {
                 $ride_fare=round($fares,$decimals);
-                $tax_amount=round(($ride_fare+$v_det->service_charge)*$v_det->ride_tax/100,$decimals);
+                //$tax_amount=round(($ride_fare+$v_det->service_charge)*$v_det->ride_tax/100,$decimals);
+                $tax_amount=round($v_det->service_charge*$v_det->ride_tax/100,$decimals);
                 $total_fare=$ride_fare+$tax_amount+$v_det->service_charge;
                 $extra_charge_status=0;
               }
@@ -178,7 +180,8 @@ class CustomerRideBookings extends Controller
             else
             {
               $ride_fare=round($fares,$decimals);
-              $tax_amount=round(($ride_fare+$v_det->service_charge)*$v_det->ride_tax/100,$decimals);
+              //$tax_amount=round(($ride_fare+$v_det->service_charge)*$v_det->ride_tax/100,$decimals);
+              $tax_amount=round($v_det->service_charge*$v_det->ride_tax/100,$decimals);
               $total_fare=$ride_fare+$tax_amount+$v_det->service_charge;
               $extra_charge_status=0;
             }
