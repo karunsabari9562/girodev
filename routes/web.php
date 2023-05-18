@@ -478,7 +478,7 @@ Route::post('/offline-pay-approve', [FranchiseRideController::class, 'offline_pa
 Route::post('/drivers-payment', [FranchiseSalaryController::class, 'drivers_payment']);
 Route::get('/driver-paid-rides/{pid}', [FranchiseSalaryController::class, 'driver_rides_list']);
 
-Route::get('/payments', [FranchiseSalaryController::class, 'payments']);
+Route::get('/payments-history', [FranchiseSalaryController::class, 'payments']);
 
 
 

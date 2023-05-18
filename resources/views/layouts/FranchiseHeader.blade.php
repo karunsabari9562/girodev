@@ -346,7 +346,7 @@
         </li>
 
            <li class="nav-item" >
-              <a href="/payments" class="nav-link" style="color: white;">
+              <a href="/payments-history" class="nav-link" style="color: white;">
                 <i class="nav-icon fa fa-credit-card"></i>
                 <p>
                   Payments
