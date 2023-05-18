@@ -62,7 +62,7 @@ Route::get('/admin-password-reset/{tk}/{em}', [AdminController::class, 'admin_pa
 Route::post('/adminpsw-reset' , [AdminController::class, 'adminpsw_reset']);
 Route::post('/AdminLogin' , [AdminController::class, 'login'])->name('admin.login');
 
-Route::middleware(['AdminLoginCheck','PreventBack'])->group(function () {
+  Route::middleware(['AdminLoginCheck','PreventBack'])->group(function () {
 
   Route::get('/admin-dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
   Route::get('/admin-logout', [AdminController::class, 'logout'])->name('admin.logout');
@@ -282,6 +282,8 @@ Route::get('/girokab-admin/driver-rides-list/{did}/{dt}', [AdminCollectionContro
 
 Route::get('/girokab-admin/all-collection', [AdminCollectionController::class, 'all_collection']);
 Route::post('/girokab-admin/all-collection-history', [AdminCollectionController::class, 'all_collection_history']);
+
+Route::post('/girokab-admin/regfee-history', [AdminCollectionController::class, 'regfee_history']);
 
 Route::get('/girokab-admin/offline-payments', [AdminCollectionController::class, 'offline_payments']);
 Route::post('/offline-pay-approval', [AdminCollectionController::class, 'offline_pay_approve']);

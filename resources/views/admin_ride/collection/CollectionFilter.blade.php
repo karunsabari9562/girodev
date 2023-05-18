@@ -123,7 +123,54 @@
                 </div>
                 </form>
                 </div>
+
+
+
+
+                <div class="col-12">
+                 
+                   <br><h4 style="font-size: 17px;font-weight: bold;">Registration Fee Analysis</h4>
+                     <form class="form-horizontal" action="/girokab-admin/regfee-history" method="post" target="_blank">
+                @csrf
+                   <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">From</label>
+                    <div class="col-sm-10">
+                    
+                    <input type="date" name="regfrom" class="form-control">
+                    @error('regfrom') <span style="color: red;">* {{$message}}</span> @enderror
+                    </div>
+                  </div> 
+                  <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">To</label>
+                    <div class="col-sm-10">
+                    <input type="date" name="regto" class="form-control">
+                    @error('regto') <span style="color: red;">* {{$message}}</span> @enderror
+                    </div>
+                  </div> 
+
+                     <div class="card-footer">
+                  <!-- <button type="submit" class="btn btn-info">Analise</button> -->
+                    <button type="submit" class="btn yellowbtn float-right">View Collection</button>
+                 
+                </div>
+                </form>
+                </div>
+
+
+
+
+
               </div>
+
+              
+
+
+
+
+
+
+
+
             </div>
             <div class="col-12 col-md-12 col-lg-5 order-1 order-md-2">
               

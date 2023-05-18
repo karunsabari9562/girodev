@@ -14,6 +14,7 @@ use App\Models\unfinished_bookings;
 use App\Models\driver_registration;
 use App\Models\franchise_detail;
 use App\Models\driver_salary;
+use App\Models\driver_secondary_document;
 
 class AdminCollectionController extends Controller
 {
@@ -449,6 +450,36 @@ public function offline_payments()
      echo json_encode($data);
 
     }
+
+//////////////////////////
+
+    public function regfee_history(request $req)
+
+    {
+      $req->validate([
+            'regfrom'=>'required',
+            'regto'=>'required',
+            
+           
+            ],
+            [
+              'regfrom.required' => 'This field is required',
+              'regto.required' => 'This field is required',
+            
+              
+            ]
+
+
+          );
+
+
+   $fee=driver_secondary_document::where('payment_date','>=',$req->regfrom)->where('payment_date','<=',$req->regfrom)->where('payment_status',1)->orderBy('payment_date','DESC')->get();
+   $feesum=driver_secondary_document::where('payment_date','>=',$req->regfrom)->where('payment_date','<=',$req->regfrom)->where('payment_status',1)->sum('amount');
+
+   
+           
+    return view('admin_ride.collection.RegFeeCollection',['fee'=>$fee,'feesum'=>$feesum]); 
+}
 
 
 
