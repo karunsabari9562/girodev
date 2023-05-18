@@ -473,7 +473,7 @@ public function offline_payments()
           );
 
 
-   $fee=driver_secondary_document::where('payment_date','>=',$req->regfrom)->where('payment_date','<=',$req->regfrom)->where('payment_status',1)->orderBy('payment_date','DESC')->get();
+   $fee=driver_secondary_document::where('payment_date','>=',$req->regfrom)->where('payment_date','<=',$req->regto)->where('payment_status',1)->orderBy('payment_date','DESC')->get();
    $feesum=driver_secondary_document::where('payment_date','>=',$req->regfrom)->where('payment_date','<=',$req->regfrom)->where('payment_status',1)->sum('amount');
 
    
