@@ -102,6 +102,16 @@ class CustomerRegApiController extends Controller
 				$customer_det=customer_registration::select('id','mobile','login_otp','status')->where('mobile',$req->mobile)->first();
 						if($customer_det)
 							{
+
+								if($customer_det->status!=1)
+								{
+
+								return response()->json(['message'=>'Invalid mobile number'],400);
+									
+								}
+								else
+								{
+
 					//$otp=rand(100001,999990);
 					$otp="111111";
 					$date = date("Y-m-d H:i:s");
@@ -123,6 +133,7 @@ class CustomerRegApiController extends Controller
 
 				],200);
 				}
+			}
 				else
 				{
 					return response()->json(['message'=>'Invalid mobile number'],400);
@@ -487,6 +498,26 @@ class CustomerRegApiController extends Controller
 
 				'categories'=>$cat,				
 			
+				],200);
+		
+	}
+
+
+
+		public function customer_deactivate()
+		
+	{
+		$customer=Auth::guard('customerapi')->user()->id;
+		customer_registration::where('id',$customer)->update([
+
+			'status'=>3,
+
+		]);
+		
+		return response()->json([
+
+				'message'=>'Account detactivated successfully',
+
 				],200);
 		
 	}
