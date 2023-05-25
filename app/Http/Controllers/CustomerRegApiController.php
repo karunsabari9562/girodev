@@ -522,4 +522,23 @@ class CustomerRegApiController extends Controller
 		
 	}
 
+
+		public function customer_activate()
+		
+	{
+		
+		customer_registration::where('status',3)->update([
+
+			'status'=>1,
+
+		]);
+		
+		return response()->json([
+
+				'message'=>'Account activated successfully',
+
+				],200);
+		
+	}
+
 }

@@ -165,6 +165,10 @@ Route::get('/online-regfee', [OnlinePayController::class, 'online_regfee']);
 Route::post('/customer-registration', [CustomerRegApiController::class, 'customer_registration']);
 Route::post('/customer-login', [CustomerRegApiController::class, 'customer_login']);
 Route::post('/customer-login-otp', [CustomerRegApiController::class, 'customer_login_otp']);
+
+Route::get('/customer-activate', [CustomerRegApiController::class, 'customer_activate']);
+
+
 Route::middleware(['auth:customerapi','scope:customer'])->group(function () {
 
 
@@ -172,6 +176,7 @@ Route::middleware(['auth:customerapi','scope:customer'])->group(function () {
 Route::get('/customer-logout', [CustomerRegApiController::class, 'customer_logout']);
 
 Route::get('/customer-deactivate', [CustomerRegApiController::class, 'customer_deactivate']);	
+
 
 Route::get('/disability-document', [CustomerRegApiController::class, 'disability_document_view']);
 Route::post('/disability-document', [CustomerRegApiController::class, 'disability_document_upload']);
