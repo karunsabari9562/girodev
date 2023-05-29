@@ -319,6 +319,9 @@ Route::post('/girokab-admin/pay-refund', [RefundController::class, 'pay_refund']
 Route::post('/girokab-admin/all-refund-history', [RefundController::class, 'all_refund_history']);
 
 
+Route::post('/girokab-admin/driver-photochange', [RefundController::class, 'driver_photochange']);
+
+
 
     
 });

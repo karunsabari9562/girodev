@@ -9,6 +9,8 @@ use DB,Auth,Cache;
 use App\Models\unfinished_bookings;
 use App\Models\driver_registration;
 use App\Models\refund;
+use Illuminate\Support\Facades\File;
+use Image,Storage;
 
 class RefundController extends Controller
 {
@@ -178,7 +180,48 @@ class RefundController extends Controller
 
      
        
-        
+   public function driver_photochange(Request $req)
+    {
+
+        $vid=$req->did;
+        $dr_det=driver_registration::where('id',$vid)->first();
+        $img = $req->file('img');
+        if($img=='')
+        {
+            $new_name=$dr_det->photo;
+        }
+        else{
+            //   $imgWillDelete = public_path() . $vtype_det->icon;
+            // File::delete($imgWillDelete);
+         $file = $req->file('img');
+    $new_name = "/drivers/" . time() . '.' . $file->getClientOriginalExtension();
+// Load the image from storage
+$image = Image::make($file);
+
+// Resize the image
+$image->resize(800, 600, function ($constraint) {
+    $constraint->aspectRatio();
+    $constraint->upsize();
+});
+
+// Automatically correct the image orientation based on EXIF data
+$image->orientate();
+
+// Save the resized image
+$image->save(public_path($new_name));
+        }
+
+      
+        driver_registration::where('id',$vid)->update([
+
+            'photo'=>$new_name,
+
+            ]);
+
+            $data['success']="success";
+            echo json_encode($data);
+
+      }      
 
     
 }

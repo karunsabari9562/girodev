@@ -54,6 +54,46 @@
 <!-- *************************************** -->
 
 
+<!-- *************************************** -->
+<div class="modal" id="addphoto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="border:none;overflow: auto;">
+      <div class="modal-header" style="background:#fab60b;color: white;border:none; ">
+        <h5 class="modal-title" id="exampleModalLabel"  style="font-size: 25px;font-weight: bold;"><i>   Edit Photo</i></h5><i class="fa fa-times-circle" aria-hidden="true" style="font-weight: bold;font-size: 25px;cursor: pointer;" onclick="document.getElementById('addreg').style.display='none'"></i>
+
+
+       
+      </div>
+      <div class="modal-body">
+        <form class="edit-content" id="reject" method="post">
+
+
+       
+          <div class="form-group">
+            <label for="reason" class="col-form-label" style="font-weight: bold;">Photo:</label>
+        
+            <textarea class="form-control" rows="5" id="reason" name="reason"></textarea>
+
+            <input type="file" class="form-control" name="pdf_file" id="pdf_file">
+            
+          </div>
+
+
+         
+        <input type="hidden" name="bid1" id="bid1">
+      </div>
+      <div class="modal-footer" style="border:none;">
+        
+        <button type="button" class="btn yellowbtn" id="ab3" onclick="SavePhoto()">Submit</button>
+         <button type="button"  class="btn yellowbtn" id="ab4" disabled="" > <i class="fa fa-spinner fa-spin"></i>  Submit</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- *************************************** -->
+
+
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -130,6 +170,10 @@
                     <b>Valid Upto</b><a class="float-right">{{ $driver_det->valid_to->format('d-m-Y') }}</a>
                   </li>
                   @endif
+
+                  <li class="list-group-item">
+                    <b>Profile Photo</b><a class="float-right" onclick="ChangePhoto()">Edit</a>
+                  </li>
                   
                 </ul>
 
@@ -761,11 +805,118 @@ $('#sect1').css({ 'opacity' : 1 });
 
 
 
-
+function ChangePhoto()
+{
  
   
+var modal11 = document.getElementById("addphoto");
+
+modal11.style.display = "block";
+
+}
+ 
+  
+function SavePhoto()
+{
 
 
+  var img=$('#pdf_file').val();
+
+  if(img=='')
+  {
+    alert('Please add photo');
+    
+    return false;
+  }
+  else
+
+    var driverid='{{$driver_det->id}}';
+
+    data = new FormData();
+ data.append('img', $('#pdf_file')[0].files[0]);
+   data.append('did', driverid);
+ data.append('_token', @json(csrf_token()));
+
+$('#ab3').hide();
+$('#ab4').show();
+
+$('#sect1').css({ 'opacity' : 0.1 });
+  $.ajax({
+
+    type:"POST",
+    url:"/girokab-admin/driver-photochange",
+    data:data,
+    dataType:"json",
+    contentType: false,
+   //cache: false,
+   processData: false,
+
+    success:function(data)
+    {
+      if(data['success'])
+      {
+        $('#ab2').hide();
+        $('#ab1').show();
+         
+$('#sect1').css({ 'opacity' : 1 });
+          swal({
+                              title: "Driver photo changed successfully.",
+                              //text: "Username and Password send to your Email",
+                              icon: "success",
+                              buttons: "Ok",
+                               closeOnClickOutside: false
+  
+                            })
+
+                      .then((willDelete) => {
+                       if (willDelete) {
+                             window.location.href=window.location.href;
+                                  } 
+
+                            });
+                                 
+      }
+      
+      
+
+    }
+
+
+
+
+  })
+
+
+}
+
+    
+  function Abc()
+  {
+                  var name = document.getElementById("pdf_file").files[0].name;
+  //alert(name)
+  var form_data = new FormData();
+  var ext = name.split('.').pop().toLowerCase();
+  //if(jQuery.inArray(ext, ['gif','png','jpg','jpeg','pdf']) == -1)
+  if(jQuery.inArray(ext, ['gif','png','jpg','jpeg']) == -1)
+
+  {
+   alert("Invalid File.");
+   $('input#pdf_file').val("");
+   return false;
+  }
+  var oFReader = new FileReader();
+  oFReader.readAsDataURL(document.getElementById("pdf_file").files[0]);
+  var f = document.getElementById("pdf_file").files[0];
+  var fsize = f.size||f.fileSize;
+  if(fsize > 6000000)
+  {
+   alert("File Size is very big");
+   $('input#pdf_file').val("");
+   return false;
+  }
+
+  
+}
     
   </script>
   @endsection
