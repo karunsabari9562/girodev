@@ -59,7 +59,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content" style="border:none;overflow: auto;">
       <div class="modal-header" style="background:#fab60b;color: white;border:none; ">
-        <h5 class="modal-title" id="exampleModalLabel"  style="font-size: 25px;font-weight: bold;"><i>   Edit Photo</i></h5><i class="fa fa-times-circle" aria-hidden="true" style="font-weight: bold;font-size: 25px;cursor: pointer;" onclick="document.getElementById('addreg').style.display='none'"></i>
+        <h5 class="modal-title" id="exampleModalLabel"  style="font-size: 25px;font-weight: bold;"><i>   Edit Photo</i></h5><i class="fa fa-times-circle" aria-hidden="true" style="font-weight: bold;font-size: 25px;cursor: pointer;" onclick="document.getElementById('addphoto').style.display='none'"></i>
 
 
        
@@ -72,7 +72,7 @@
           <div class="form-group">
             <label for="reason" class="col-form-label" style="font-weight: bold;">Photo:</label>
         
-            <textarea class="form-control" rows="5" id="reason" name="reason"></textarea>
+           
 
             <input type="file" class="form-control" name="pdf_file" id="pdf_file">
             
