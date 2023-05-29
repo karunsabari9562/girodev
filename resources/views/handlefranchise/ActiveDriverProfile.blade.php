@@ -172,7 +172,7 @@
                   @endif
 
                   <li class="list-group-item">
-                    <b>Profile Photo</b><a class="float-right" onclick="ChangePhoto()">Edit</a>
+                    <b>Profile Photo</b><a class="float-right" onclick="ChangePhoto()" style="cursor:pointer;">Edit</a>
                   </li>
                   
                 </ul>
