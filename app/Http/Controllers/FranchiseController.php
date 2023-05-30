@@ -882,7 +882,7 @@ $msg=$m1;
   public function driver_area()
     {
         $franchise=Auth::guard('franchise')->user()->id;
-       $driver=driver_registration::select('id','driver_id','photo','name')->where('franchise',$franchise)->where('status',1)->latest()->limit(4)->get();
+       $driver=driver_registration::select('id','driver_id','photo','name')->where('franchise',$franchise)->where('status',1)->orderBy('driver_id','DESC')->limit(4)->get();
         return view('franchise.DriverArea',['driver'=>$driver]);
        
     } 
@@ -890,7 +890,7 @@ $msg=$m1;
     public function active_drivers()
     {
         $franchise=Auth::guard('franchise')->user()->id;
-       $driver=driver_registration::select('id','driver_id','name','mobile','approved_date','valid_to')->where('franchise',$franchise)->where('status',1)->latest()->get();
+       $driver=driver_registration::select('id','driver_id','name','mobile','approved_date','valid_to')->where('franchise',$franchise)->where('status',1)->orderBy('driver_id','DESC')->get();
         return view('franchise.ActiveDrivers',['driver'=>$driver]);
        
     } 

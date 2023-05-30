@@ -27,7 +27,7 @@ class HandleDriver extends Controller
     public function driver_area()
     {
        
-       $driver=driver_registration::select('id','driver_id','photo','name')->where('status',1)->latest()->limit(4)->get();
+       $driver=driver_registration::select('id','driver_id','photo','name')->where('status',1)->orderBy('driver_id','DESC')->limit(4)->get();
        
         return view('handledriver.FranchiseDriverArea',['driver'=>$driver]);
      } 
