@@ -37,7 +37,7 @@ class HandleDriver extends Controller
     {
         
 
-       $driver=driver_registration::select('id','driver_id','franchise','name','mobile','approved_date','valid_to')->where('status',1)->latest()->get();
+       $driver=driver_registration::select('id','driver_id','franchise','name','mobile','approved_date','valid_to')->where('status',1)->orderBy('driver_id','DESC')->get();
 
         return view('handledriver.ActiveDrivers',['driver'=>$driver]);
        
