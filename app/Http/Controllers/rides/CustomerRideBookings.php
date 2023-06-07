@@ -151,7 +151,7 @@ class CustomerRideBookings extends Controller
                 }
                 else
                  {
-                  $fares=$v_det->fare;
+                  $fares=$v_det->minimum_fare;
                 }
 
   
