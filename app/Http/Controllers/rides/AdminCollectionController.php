@@ -422,7 +422,7 @@ public function offline_payments()
      
     {
       
-        $bookings=ride_booking_history::where('status',6)->where('payment_type',2)->where('offline_pay_admin',0)->oldest()->get();
+    $bookings=ride_booking_history::where('status',6)->where('payment_type',2)->where('offline_pay_admin', NULL)->orderBy('booked_at','DESC')->get();
          return view('admin_ride.collection.OfflinePayments',['bookings'=>$bookings]);
     }
 
