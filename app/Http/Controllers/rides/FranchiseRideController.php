@@ -484,7 +484,7 @@ public function completed_colrides($fdt)
      
     {
       $franchise=Auth::guard('franchise')->user()->id;
-        $bookings=ride_booking_history::where('franchise',$franchise)->where('status',6)->where('payment_type',2)->where('offline_pay_admin',0)->latest()->get();
+        $bookings=ride_booking_history::where('franchise',$franchise)->where('status',6)->where('payment_type',2)->where('offline_pay_admin','')->latest()->get();
          return view('franchise_ride.OfflinePayments',['bookings'=>$bookings]);
     }
 
