@@ -162,7 +162,7 @@
 
                     @php
                     $dt=date('Y-m-d');
-                    $cnt=DB::table('ride_booking_history')->where('driver_id',$b->driver_id)->where('status',6)->where('booked_date',$dt)->count();
+                    $cnt=DB::table('ride_booking_histories')->where('driver_id',$b->driver_id)->where('status',6)->where('booked_date',$dt)->count();
                     @endphp
                     
                   <tr>
