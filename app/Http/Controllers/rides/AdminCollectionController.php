@@ -147,19 +147,19 @@ $time=unfinished_bookings::where('booked_date','>=',$first_day)->where('booked_d
 else if($req->btype==3)
 {
   $type="Rejected";
-   $bookings=unfinished_bookings::where('status',2)->where('booked_date','>=',$req->dfrom)->where('booked_date','<=',$req->dto)->orderBy('booked_at','ASC')->get();
+   $bookings=unfinished_bookings::where('status',2)->where('booked_date','>=',$req->dfrom)->where('booked_date','<=',$req->dto)->orderBy('booked_at','DESC')->get();
    return view('admin_ride.collection.UnfinishedRideHistory',['bookings'=>$bookings,'type'=>$type,'dfrom'=>$req->dfrom,'dto'=>$req->dto]);
 }
 else if($req->btype==4)
 {
   $type="Cancelled";
-   $bookings=unfinished_bookings::where('status',3)->where('booked_date','>=',$req->dfrom)->where('booked_date','<=',$req->dto)->orderBy('booked_at','ASC')->get();
+   $bookings=unfinished_bookings::where('status',3)->where('booked_date','>=',$req->dfrom)->where('booked_date','<=',$req->dto)->orderBy('booked_at','DESC')->get();
    return view('admin_ride.collection.UnfinishedRideHistory',['bookings'=>$bookings,'type'=>$type,'dfrom'=>$req->dfrom,'dto'=>$req->dto]);
 }
 else if($req->btype==5)
 {
   $type="Timeout ";
-   $bookings=unfinished_bookings::where('status',4)->where('booked_date','>=',$req->dfrom)->where('booked_date','<=',$req->dto)->orderBy('booked_at','ASC')->get();
+   $bookings=unfinished_bookings::where('status',4)->where('booked_date','>=',$req->dfrom)->where('booked_date','<=',$req->dto)->orderBy('booked_at','DESC')->get();
    return view('admin_ride.collection.UnfinishedRideHistory',['bookings'=>$bookings,'type'=>$type,'dfrom'=>$req->dfrom,'dto'=>$req->dto]);
 }
 
@@ -200,7 +200,7 @@ public function completed_mrides()
       $first_day= date('Y-m-01');
       $last_day  = date('Y-m-t');
          
-    $bookings=unfinished_bookings::where('booked_date','>=',$first_day)->where('booked_date','<=',$last_day)->where('status',2)->get();
+    $bookings=unfinished_bookings::where('booked_date','>=',$first_day)->where('booked_date','<=',$last_day)->where('status',2)->latest()->get();
            
            return view('admin_ride.collection.MonthlyRejectedRides',['bookings'=>$bookings]); 
  
@@ -212,7 +212,7 @@ public function completed_mrides()
       $first_day= date('Y-m-01');
       $last_day  = date('Y-m-t');
     
-    $bookings=unfinished_bookings::where('booked_date','>=',$first_day)->where('booked_date','<=',$last_day)->where('status',3)->get();
+    $bookings=unfinished_bookings::where('booked_date','>=',$first_day)->where('booked_date','<=',$last_day)->where('status',3)->latest()->get();
            
            return view('admin_ride.collection.MonthlyCancelledRides',['bookings'=>$bookings]); 
  
@@ -223,7 +223,7 @@ public function completed_mrides()
       $first_day= date('Y-m-01');
       $last_day  = date('Y-m-t');
    
-    $bookings=unfinished_bookings::where('booked_date','>=',$first_day)->where('booked_date','<=',$last_day)->where('status',4)->get();
+    $bookings=unfinished_bookings::where('booked_date','>=',$first_day)->where('booked_date','<=',$last_day)->where('status',4)->latest()->get();
            
            return view('admin_ride.collection.MonthlyTimeoutRides',['bookings'=>$bookings]); 
  
