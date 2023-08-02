@@ -50,13 +50,13 @@
                         <p>Founder & CEO</p>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-3">
+                <!-- <div class="col-md-4 col-lg-3">
                     <div class="team-photo" data-aos="fade-up">
                         <img src="{{asset('homepage/images/team06.jpeg')}}" alt="team photo">
                         <h4>Aswin A</h4>
                         <p>General Manager</p>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-md-4 col-lg-3">
                     <div class="team-photo" data-aos="fade-up">
                         <img src="{{asset('homepage/images/team02.jpg')}}" alt="team photo">
