@@ -71,13 +71,13 @@
                         <p>Chief Operating Officer</p>
                     </div>
                 </div>
-                <!-- <div class="col-md-4 col-lg-3">
+                 <div class="col-md-4 col-lg-3">
                     <div class="team-photo" data-aos="fade-up">
-                        <img src="{{asset('homepage/images/team05.jpg')}}" alt="team photo">
-                        <h4>JIJU K</h4>
-                        <p>Cheif Marketing Manager</p>
+                        <img src="{{asset('homepage/images/team07.jpeg')}}" alt="team photo">
+                        <h4>Adv. BABU MANDIEN</h4>
+                        <p>Legal Advisor</p>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
     </section>
