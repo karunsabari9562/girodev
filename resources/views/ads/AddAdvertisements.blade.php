@@ -270,7 +270,7 @@ processData: false,
   var form_data = new FormData();
   var ext = name.split('.').pop().toLowerCase();
   //if(jQuery.inArray(ext, ['gif','png','jpg','jpeg','pdf']) == -1)
-  if(jQuery.inArray(ext, ['gif','png','jpg','jpeg']) == -1)
+  if(jQuery.inArray(ext, ['svg','png','jpg','jpeg']) == -1)
 
   {
    alert("Invalid File.");
