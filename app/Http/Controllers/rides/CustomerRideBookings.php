@@ -101,19 +101,22 @@ class CustomerRideBookings extends Controller
                 ->limit(5)
                 ->get();  
 
+                $available_drivers = 0;
+                $dr = [];
+
                 if(!$drivers->isEmpty())
                 foreach ($drivers as $d)
                  {
-                  if($d->distances<=10)
+                  if($d->distances<50)
                   {
                     $available_drivers=count($drivers);
                     $dr[]= $d;
                   }
-                  else
-                  {
-                    $available_drivers=0;
-                    $dr=[];
-                  }
+                  // elseif($d->distances>=50)
+                  // {
+                  //   $available_drivers=0;
+                  //   $dr=[];
+                  // }
                   
                 }
                 else
