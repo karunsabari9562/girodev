@@ -180,6 +180,8 @@
                       
                     
                   <td><a href="/girokab-admin/active-driver-profile/{{encrypt($b->driver_id)}}" target="_blank">Id: {{$b->GetDriver->driver_id}}</a><br>
+                    <a href="/girokab-admin/active-driver-profile/{{encrypt($b->driver_id)}}" target="_blank">Name: {{$b->GetDriver->name}}</a><br>
+                    <a href="/girokab-admin/active-driver-profile/{{encrypt($b->driver_id)}}" target="_blank">Mobile: {{$b->GetDriver->mobile}}</a><br>
                     <a href="/franchise-details/{{encrypt($b->franchise)}}" target="_blank">Div: {{$b->GetFranchise->franchise_id}}</a>
                    @switch($b->status)
                       @case(0)                       
