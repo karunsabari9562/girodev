@@ -170,7 +170,11 @@
                     </td>
                       
                     
-                   <td><a href="/active-driver-profile/{{encrypt($b->driver_id)}}" target="_blank">{{$b->GetDriver->driver_id}}</a></td>
+                   <td><a href="/active-driver-profile/{{encrypt($b->driver_id)}}" target="_blank">{{$b->GetDriver->driver_id}}</a>
+                    <br>
+                    <a href="/active-driver-profile/{{encrypt($b->driver_id)}}" target="_blank">Name: {{$b->GetDriver->name}}</a><br>
+                    <a href="/active-driver-profile/{{encrypt($b->driver_id)}}" target="_blank">Mobile: {{$b->GetDriver->mobile}}</a><br>
+                   </td>
                    @switch($b->status)
                       @case(0)                       
                       <td><span class="badge badge-warning">Pending</span></td>

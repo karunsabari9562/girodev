@@ -83,7 +83,12 @@
                     <td title="From : {{ $b->from_location}} , To : {{ $b->to_location }}" style="cursor: pointer;">From : {{ Str::limit($b->from_location, 20, '...') }}<br>
                       To : {{ Str::limit($b->to_location, 20, '...') }}</td>
                     
-                   <td><a href="/active-driver-profile/{{encrypt($b->driver_id)}}" target="_blank">{{$b->GetDriver->driver_id}}</a></td>
+                   <td><a href="/active-driver-profile/{{encrypt($b->driver_id)}}" target="_blank">{{$b->GetDriver->driver_id}}</a><br>
+                    <a href="/active-driver-profile/{{encrypt($b->driver_id)}}" target="_blank">Name: {{$b->GetDriver->name}}</a><br>
+                    <a href="/active-driver-profile/{{encrypt($b->driver_id)}}" target="_blank">Mobile: {{$b->GetDriver->mobile}}</a><br>
+
+
+                   </td>
                    @switch($b->status)
                      
 
