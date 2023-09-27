@@ -38,8 +38,8 @@ class CustomerRegApiController extends Controller
 					}
 					else
 					{
-						//$otp=rand(100001,999990);
-						$otp="111111";
+						$otp=rand(100001,999990);
+						//$otp="111111";
 						$date = date("Y-m-d H:i:s");
 						$currentDate = strtotime($date);
 						$futureDate = $currentDate+(60*5);
@@ -112,8 +112,8 @@ class CustomerRegApiController extends Controller
 								else
 								{
 
-					//$otp=rand(100001,999990);
-					$otp="111111";
+					$otp=rand(100001,999990);
+					//$otp="111111";
 					$date = date("Y-m-d H:i:s");
 						$currentDate = strtotime($date);
 						$futureDate = $currentDate+(60*5);
