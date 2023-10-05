@@ -209,7 +209,9 @@ class AdminController extends Controller
             //$ins['Photo']=$new_name;
         }
         
-            admin_detail::where('id',1)->update([
+           
+            $data['success']="success";
+         admin_detail::where('id',1)->update([
                 'name'=>$req->cname,
                 'mobile'=>$req->cmobile,
                 'mail_id'=>$req->cmail,
@@ -218,8 +220,6 @@ class AdminController extends Controller
                 'instagram'=>$req->cins,
                 'twitter'=>$req->ctwitter,
             ]) ;
-            $data['success']="success";
-        
         echo json_encode($data);
        
     }

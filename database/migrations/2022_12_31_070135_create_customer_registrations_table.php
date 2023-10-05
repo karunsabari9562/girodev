@@ -27,6 +27,8 @@ return new class extends Migration
              $table->Integer('status')->nullable()->default(1);
              $table->string('block_reason', 300)->nullable();
             $table->string('photo',100)->nullable(); 
+            $table->string('referral_code',100)->nullable(); 
+            $table->string('own_referral_code',100)->nullable(); 
 
             $table->timestamps();
         });

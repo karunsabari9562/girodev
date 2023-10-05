@@ -38,12 +38,23 @@ class CustomerRegApiController extends Controller
 					}
 					else
 					{
-						$otp=rand(100001,999990);
-						//$otp="111111";
+						if($req->referral_code!='')
+						{
+
+							if(customer_registration::where('own_referral_code',$req->referral_code)->exists())
+							{
+
+
+						//$otp=rand(100001,999990);
+						$otp="111111";
 						$date = date("Y-m-d H:i:s");
 						$currentDate = strtotime($date);
 						$futureDate = $currentDate+(60*5);
 						$formatDate = date("Y-m-d H:i:s", $futureDate);	
+
+						$firstTwoLetters = strtoupper(substr($req->name, 0, 2));
+						$randomString = generateRandomString(3);
+						$ownReferralCode = 'GK' . $firstTwoLetters . $randomString;
 						
 						customer_registration::create([
 							
@@ -51,11 +62,13 @@ class CustomerRegApiController extends Controller
 						'mobile'=>$req->mobile,
 						'login_otp'=>$otp,
 						'otp_expiry'=>$formatDate,
+						'referral_code'=>$req->referral_code,
+						'own_referral_code'=>$ownReferralCode,
 						'email'=>'',
 						
 						]);
 
-						$response=Http::get('http://sms.firstdial.info/sendsms?uname=girokab&pwd=girokab2023&senderid=GIROKB&to='.$req->mobile.'&msg=Dear%20User,'.$otp.'%20is%20your%20OTP%20for%20GiroKab%20app%20login.%20Do%20not%20share%20with%20others.%20Thank%20You&route=T&peid=1701167429639010331&tempid=1707167454240943316');
+						//$response=Http::get('http://sms.firstdial.info/sendsms?uname=girokab&pwd=girokab2023&senderid=GIROKB&to='.$req->mobile.'&msg=Dear%20User,'.$otp.'%20is%20your%20OTP%20for%20GiroKab%20app%20login.%20Do%20not%20share%20with%20others.%20Thank%20You&route=T&peid=1701167429639010331&tempid=1707167454240943316');
 
 						$customer_det=customer_registration::select('id','mobile','login_otp','status')->where('mobile',$req->mobile)->first();
 						if($customer_det)
@@ -74,10 +87,76 @@ class CustomerRegApiController extends Controller
 								return response()->json(['message'=>'Invalid.'],401);
 							}
 
+			    		}
+			    		else
+			    		{
+			    			return response()->json([
+								
+							'message'=>'Invalid referral code',
+							],400);
+			    		}
+			    	 }
+			    	 else
+			    	 {
+			    	 	//$otp=rand(100001,999990);
+						$otp="111111";
+						$date = date("Y-m-d H:i:s");
+						$currentDate = strtotime($date);
+						$futureDate = $currentDate+(60*5);
+						$formatDate = date("Y-m-d H:i:s", $futureDate);	
+						$firstTwoLetters = strtoupper(substr($req->name, 0, 2));
+						$randomString = $this->generateRandomString(3);
+						$ownReferralCode = 'GK' . $firstTwoLetters . $randomString;
+						
+						customer_registration::create([
+							
+						'name'=>$req->name,
+						'mobile'=>$req->mobile,
+						'login_otp'=>$otp,
+						'otp_expiry'=>$formatDate,
+						'own_referral_code'=>$ownReferralCode,
+						'email'=>'',
+						
+						]);
+
+						//$response=Http::get('http://sms.firstdial.info/sendsms?uname=girokab&pwd=girokab2023&senderid=GIROKB&to='.$req->mobile.'&msg=Dear%20User,'.$otp.'%20is%20your%20OTP%20for%20GiroKab%20app%20login.%20Do%20not%20share%20with%20others.%20Thank%20You&route=T&peid=1701167429639010331&tempid=1707167454240943316');
+
+						$customer_det=customer_registration::select('id','mobile','login_otp','status')->where('mobile',$req->mobile)->first();
+						if($customer_det)
+							{						
+
+								
+								return response()->json([
+									
+							
+							'status'=>$customer_det->status,
+							'message'=>'Otp sent successfully.Please verify mobile number',
+							],200);
+							}
+							else
+							{
+								return response()->json(['message'=>'Invalid.'],401);
+							}
+			    	 }
+			    		
 			    	}
 				}
 
 	}
+
+
+	public function generateRandomString($length = 3)
+	 {
+	    $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	    $randomString = '';
+
+	    for ($i = 0; $i < $length; $i++) {
+	        $randomString .= $characters[rand(0, strlen($characters) - 1)];
+	    }
+
+	    return $randomString;
+	}
+
 
 	public function customer_login(Request $req)
 		
@@ -112,8 +191,8 @@ class CustomerRegApiController extends Controller
 								else
 								{
 
-					$otp=rand(100001,999990);
-					//$otp="111111";
+					//$otp=rand(100001,999990);
+					$otp="111111";
 					$date = date("Y-m-d H:i:s");
 						$currentDate = strtotime($date);
 						$futureDate = $currentDate+(60*5);
@@ -125,7 +204,7 @@ class CustomerRegApiController extends Controller
 					
 				]);
 
-					$response=Http::get('http://sms.firstdial.info/sendsms?uname=girokab&pwd=girokab2023&senderid=GIROKB&to='.$req->mobile.'&msg=Dear%20User,'.$otp.'%20is%20your%20OTP%20for%20GiroKab%20app%20login.%20Do%20not%20share%20with%20others.%20Thank%20You&route=T&peid=1701167429639010331&tempid=1707167454240943316');
+					//$response=Http::get('http://sms.firstdial.info/sendsms?uname=girokab&pwd=girokab2023&senderid=GIROKB&to='.$req->mobile.'&msg=Dear%20User,'.$otp.'%20is%20your%20OTP%20for%20GiroKab%20app%20login.%20Do%20not%20share%20with%20others.%20Thank%20You&route=T&peid=1701167429639010331&tempid=1707167454240943316');
 			
 				return response()->json([	
 		
